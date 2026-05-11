@@ -316,7 +316,7 @@
   const navbar = document.querySelector('.navbar-text') || document.querySelector('nav');
   if (navbar) {
     const userInfo = document.createElement('div');
-    userInfo.style.cssText = 'display:flex;align-items:center;gap:10px;margin-left:auto;';
+    userInfo.style.cssText = display:flex;align-items:center;gap:10px;';
     userInfo.innerHTML = `
       <span style="color:#2B8FD4;font-size:13px;font-weight:600;">${userEmail}</span>
       <button onclick="(async()=>{await _supabase.auth.signOut();window.location.href='login.html';})()"
