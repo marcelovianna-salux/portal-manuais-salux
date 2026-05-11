@@ -318,9 +318,9 @@
     const userInfo = document.createElement('div');
     userInfo.style.cssText = 'display:flex;align-items:center;gap:10px;margin-left:auto;';
     userInfo.innerHTML = `
-      <span style="color:rgba(255,255,255,0.85);font-size:13px;">${userEmail}</span>
+      <span style="color:#2B8FD4;font-size:13px;font-weight:600;">${userEmail}</span>
       <button onclick="(async()=>{await _supabase.auth.signOut();window.location.href='login.html';})()"
-        style="background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.4);padding:5px 14px;border-radius:6px;cursor:pointer;font-size:12px;">
+        style="background:#2B8FD4;color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">
         Sair
       </button>`;
     const navContainer = document.querySelector('.navbar') || document.querySelector('nav');
