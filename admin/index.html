@@ -446,7 +446,7 @@
         <tbody>
           ${data.map(m => `
             <tr>
-              <td>${m.titulo}</td>
+              <td><a href="../${m.url}" target="_blank" style="color:#2B8FD4;text-decoration:none;font-weight:500;">${m.titulo}</a></td>
               <td>${m.modulo || '—'}</td>
               <td>${new Date(m.created_at).toLocaleDateString('pt-BR')}</td>
               <td><button class="btn-danger" onclick="removerManual('${m.id}', '${m.titulo.replace(/'/g, "\\'")}')">Remover</button></td>
