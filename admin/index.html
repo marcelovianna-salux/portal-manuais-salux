@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin – Portal Salux</title>
+  <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f7fb; }
+
+    /* NAVBAR */
+    .navbar {
+      background: linear-gradient(90deg, #2B8FD4, #3DAEE9);
+      padding: 0 32px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .navbar img { height: 38px; width: auto; }
+    .navbar-right { display: flex; align-items: center; gap: 16px; }
+    .navbar-right span { color: rgba(255,255,255,0.85); font-size: 14px; }
+    .btn-sair {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 6px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background .2s;
+    }
+    .btn-sair:hover { background: rgba(255,255,255,0.35); }
+
+    /* LAYOUT */
+    .container { max-width: 1100px; margin: 32px auto; padding: 0 24px; }
+
+    h1 { font-size: 22px; color: #2c3e50; margin-bottom: 28px; }
+
+    /* TABS */
+    .tabs { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 2px solid #e2e8f0; }
+    .tab {
+      padding: 10px 24px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      color: #666;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all .2s;
+    }
+    .tab.active { color: #2B8FD4; border-bottom-color: #2B8FD4; }
+    .tab:hover { color: #2B8FD4; }
+
+    /* PANELS */
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* CARD */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .card-header h2 { font-size: 16px; color: #2c3e50; }
+
+    /* BOTÕES */
+    .btn-primary {
+      background: linear-gradient(90deg, #2B8FD4, #3DAEE9);
+      color: #fff;
+      border: none;
+      padding: 9px 20px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-danger {
+      background: #fff;
+      color: #dc2626;
+      border: 1.5px solid #fca5a5;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .btn-danger:hover { background: #fef2f2; }
+
+    /* TABELA */
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      text-align: left;
+      font-size: 12px;
+      font-weight: 700;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      padding: 8px 12px;
+      border-bottom: 1px solid #eee;
+    }
+    td {
+      padding: 12px 12px;
+      font-size: 14px;
+      color: #444;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f9fbff; }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge-admin { background: #ede9fe; color: #7c3aed; }
+    .badge-user { background: #e0f2fe; color: #0369a1; }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: #fff;
+      border-radius: 14px;
+      padding: 32px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    .modal h3 { font-size: 18px; color: #2c3e50; margin-bottom: 20px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: #444; margin-bottom: 6px; }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid #ddd;
+      border-radius: 7px;
+      font-size: 14px;
+      outline: none;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: #3DAEE9; }
+    .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 8px; }
+    .btn-cancel {
+      background: #f1f5f9;
+      color: #555;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 7px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .alert {
+      padding: 10px 14px;
+      border-radius: 7px;
+      font-size: 13px;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .alert-success { background: #f0fdf4; border: 1px solid #86efac; color: #16a34a; }
+    .alert-error { background: #fef2f2; border: 1px solid #fca5a5; color: #dc2626; }
+
+    .loading { text-align: center; color: #aaa; padding: 32px; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <img src="../assets/img/logo_salux_novo.png" alt="Salux">
+  <div class="navbar-right">
+    <span id="adminEmail"></span>
+    <button class="btn-sair" onclick="sair()">Sair</button>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>⚙️ Painel Administrativo</h1>
+
+  <div class="tabs">
+    <div class="tab active" onclick="mudarTab('usuarios')">👥 Usuários</div>
+    <div class="tab" onclick="mudarTab('manuais')">📚 Manuais</div>
+  </div>
+
+  <!-- PAINEL USUÁRIOS -->
+  <div class="panel active" id="panel-usuarios">
+    <div class="card">
+      <div class="card-header">
+        <h2>Usuários cadastrados</h2>
+        <button class="btn-primary" onclick="abrirModalUsuario()">+ Novo usuário</button>
+      </div>
+      <div id="listaUsuarios"><div class="loading">Carregando...</div></div>
+    </div>
+  </div>
+
+  <!-- PAINEL MANUAIS -->
+  <div class="panel" id="panel-manuais">
+    <div class="card">
+      <div class="card-header">
+        <h2>Manuais publicados</h2>
+        <button class="btn-primary" onclick="abrirModalManual()">+ Novo manual</button>
+      </div>
+      <div id="listaManuais"><div class="loading">Carregando...</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL NOVO USUÁRIO -->
+<div class="modal-overlay" id="modalUsuario">
+  <div class="modal">
+    <h3>Novo Usuário</h3>
+    <div class="alert alert-error" id="erroUsuario"></div>
+    <div class="alert alert-success" id="sucessoUsuario"></div>
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text" id="novoNome" placeholder="Nome completo">
+    </div>
+    <div class="form-group">
+      <label>E-mail</label>
+      <input type="email" id="novoEmail" placeholder="email@exemplo.com">
+    </div>
+    <div class="form-group">
+      <label>Senha</label>
+      <input type="password" id="novaSenha" placeholder="Mínimo 6 caracteres">
+    </div>
+    <div class="form-group">
+      <label>Perfil</label>
+      <select id="novoPerfil">
+        <option value="user">Usuário</option>
+        <option value="admin">Administrador</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="fecharModal('modalUsuario')">Cancelar</button>
+      <button class="btn-primary" id="btnSalvarUsuario" onclick="criarUsuario()">Criar usuário</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL NOVO MANUAL -->
+<div class="modal-overlay" id="modalManual">
+  <div class="modal">
+    <h3>Novo Manual</h3>
+    <div class="alert alert-error" id="erroManual"></div>
+    <div class="form-group">
+      <label>Título</label>
+      <input type="text" id="novoTitulo" placeholder="Nome do manual">
+    </div>
+    <div class="form-group">
+      <label>Módulo</label>
+      <input type="text" id="novoModulo" placeholder="Ex: Gerador de Documentos">
+    </div>
+    <div class="form-group">
+      <label>Descrição</label>
+      <input type="text" id="novaDescricao" placeholder="Breve descrição">
+    </div>
+    <div class="form-group">
+      <label>URL (caminho relativo)</label>
+      <input type="text" id="novaUrl" placeholder="modulos/nome-manual/index.html">
+    </div>
+    <div class="form-group">
+      <label>Ícone (Font Awesome)</label>
+      <input type="text" id="novoIcone" placeholder="fas fa-file-medical">
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="fecharModal('modalManual')">Cancelar</button>
+      <button class="btn-primary" id="btnSalvarManual" onclick="criarManual()">Salvar manual</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/supabase-config.js"></script>
+<script>
+  // ---- AUTENTICAÇÃO ----
+  let usuarioLogado = null;
+
+  async function init() {
+    const { data: { session } } = await _supabase.auth.getSession();
+    if (!session) { window.location.href = '../login.html'; return; }
+
+    usuarioLogado = session.user;
+
+    // Verificar se é admin
+    const { data: perfil } = await _supabase
+      .from('perfis')
+      .select('role')
+      .eq('id', usuarioLogado.id)
+      .single();
+
+    if (perfil?.role !== 'admin') { window.location.href = '../index.html'; return; }
+
+    document.getElementById('adminEmail').textContent = usuarioLogado.email;
+    carregarUsuarios();
+    carregarManuais();
+  }
+
+  async function sair() {
+    await _supabase.auth.signOut();
+    window.location.href = '../login.html';
+  }
+
+  // ---- TABS ----
+  function mudarTab(tab) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+    document.getElementById('panel-' + tab).classList.add('active');
+  }
+
+  // ---- USUÁRIOS ----
+  async function carregarUsuarios() {
+    const { data, error } = await _supabase
+      .from('perfis')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    const el = document.getElementById('listaUsuarios');
+
+    if (error || !data?.length) {
+      el.innerHTML = '<div class="loading">Nenhum usuário encontrado.</div>';
+      return;
+    }
+
+    el.innerHTML = `
+      <table>
+        <thead><tr>
+          <th>Nome</th><th>E-mail</th><th>Perfil</th><th>Cadastrado em</th><th></th>
+        </tr></thead>
+        <tbody>
+          ${data.map(u => `
+            <tr>
+              <td>${u.nome || '—'}</td>
+              <td>${u.email || '—'}</td>
+              <td><span class="badge badge-${u.role}">${u.role === 'admin' ? 'Admin' : 'Usuário'}</span></td>
+              <td>${new Date(u.created_at).toLocaleDateString('pt-BR')}</td>
+              <td>${u.id !== usuarioLogado.id ? `<button class="btn-danger" onclick="removerUsuario('${u.id}', '${u.email}')">Remover</button>` : ''}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>`;
+  }
+
+  async function criarUsuario() {
+    const nome = document.getElementById('novoNome').value.trim();
+    const email = document.getElementById('novoEmail').value.trim();
+    const senha = document.getElementById('novaSenha').value;
+    const role = document.getElementById('novoPerfil').value;
+    const btn = document.getElementById('btnSalvarUsuario');
+
+    ocultarAlertas();
+    if (!nome || !email || !senha) { mostrarErro('erroUsuario', 'Preencha todos os campos.'); return; }
+    if (senha.length < 6) { mostrarErro('erroUsuario', 'Senha deve ter no mínimo 6 caracteres.'); return; }
+
+    btn.disabled = true; btn.textContent = 'Criando...';
+
+    // Criar auth user via Admin API não está disponível no client
+    // Usamos signUp e depois atualizamos o perfil
+    const { data, error } = await _supabase.auth.signUp({
+      email,
+      password: senha,
+      options: { data: { nome } }
+    });
+
+    if (error) {
+      mostrarErro('erroUsuario', error.message);
+      btn.disabled = false; btn.textContent = 'Criar usuário';
+      return;
+    }
+
+    // Inserir/atualizar perfil
+    await _supabase.from('perfis').upsert({
+      id: data.user.id,
+      nome,
+      email,
+      role
+    });
+
+    document.getElementById('sucessoUsuario').textContent = `Usuário ${email} criado com sucesso!`;
+    document.getElementById('sucessoUsuario').style.display = 'block';
+    btn.disabled = false; btn.textContent = 'Criar usuário';
+
+    setTimeout(() => {
+      fecharModal('modalUsuario');
+      carregarUsuarios();
+    }, 1500);
+  }
+
+  async function removerUsuario(id, email) {
+    if (!confirm(`Remover o usuário ${email}?`)) return;
+
+    await _supabase.from('perfis').delete().eq('id', id);
+    carregarUsuarios();
+  }
+
+  function abrirModalUsuario() {
+    ocultarAlertas();
+    ['novoNome','novoEmail','novaSenha'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('modalUsuario').classList.add('open');
+  }
+
+  // ---- MANUAIS ----
+  async function carregarManuais() {
+    const { data, error } = await _supabase
+      .from('manuais')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    const el = document.getElementById('listaManuais');
+
+    if (error || !data?.length) {
+      el.innerHTML = '<div class="loading">Nenhum manual cadastrado no banco. Os manuais do arquivo local ainda estão disponíveis no portal.</div>';
+      return;
+    }
+
+    el.innerHTML = `
+      <table>
+        <thead><tr>
+          <th>Título</th><th>Módulo</th><th>Publicado em</th><th></th>
+        </tr></thead>
+        <tbody>
+          ${data.map(m => `
+            <tr>
+              <td>${m.titulo}</td>
+              <td>${m.modulo || '—'}</td>
+              <td>${new Date(m.created_at).toLocaleDateString('pt-BR')}</td>
+              <td><button class="btn-danger" onclick="removerManual('${m.id}', '${m.titulo.replace(/'/g, "\\'")}')">Remover</button></td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>`;
+  }
+
+  async function criarManual() {
+    const titulo = document.getElementById('novoTitulo').value.trim();
+    const modulo = document.getElementById('novoModulo').value.trim();
+    const descricao = document.getElementById('novaDescricao').value.trim();
+    const url = document.getElementById('novaUrl').value.trim();
+    const icone = document.getElementById('novoIcone').value.trim();
+    const btn = document.getElementById('btnSalvarManual');
+
+    if (!titulo || !url) { mostrarErro('erroManual', 'Título e URL são obrigatórios.'); return; }
+
+    btn.disabled = true; btn.textContent = 'Salvando...';
+
+    const { error } = await _supabase.from('manuais').insert({ titulo, modulo, descricao, url, icone });
+
+    if (error) {
+      mostrarErro('erroManual', error.message);
+    } else {
+      fecharModal('modalManual');
+      carregarManuais();
+    }
+
+    btn.disabled = false; btn.textContent = 'Salvar manual';
+  }
+
+  async function removerManual(id, titulo) {
+    if (!confirm(`Remover o manual "${titulo}"?`)) return;
+    await _supabase.from('manuais').delete().eq('id', id);
+    carregarManuais();
+  }
+
+  function abrirModalManual() {
+    ocultarAlertas();
+    ['novoTitulo','novoModulo','novaDescricao','novaUrl','novoIcone'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('modalManual').classList.add('open');
+  }
+
+  // ---- UTILS ----
+  function fecharModal(id) { document.getElementById(id).classList.remove('open'); }
+  function mostrarErro(id, msg) {
+    const el = document.getElementById(id);
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+  function ocultarAlertas() {
+    document.querySelectorAll('.alert').forEach(el => el.style.display = 'none');
+  }
+
+  // Fechar modal clicando fora
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
+  });
+
+  init();
+</script>
+</body>
+</html>

@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../assets/css/estilo.css">
+	<link rel="stylesheet" href="../../assets/css/scroll.css">
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' 
+	crossorigin='anonymous'>
+	<!-- google web font css -->
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600,700' rel='stylesheet' type='text/css'>
+	
+    <title>Gestão de Glosas - Manual de Instruções)</title>
+	
+	<!-- Favicon -->
+		<link rel="shortcut icon" href="../../assets/img/favicon.png" type="image/x-icon">
+	<!-- Favicon Final -->
+
+  </head>
+  <body>
+ 
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color:#2B8FD4;">
+      <div class="container" >
+        <a class="navbar-brand h1 mb-0" href="#home"><img src="../../assets/img/logo_salux_novo.png" height="42" style="width:auto;"></a>
+        <p class="navbar-text h4 mb-0 text-right" style="color:#fff;"><strong>GESTÃO DE GLOSAS</strong></p>
+    </nav>
+
+	<div class="container">
+		<br><br><br><br><br>
+
+		<a href="../../index.html" class="btn btn-outline-primary btn-sm mb-3">
+			<i class='fas fa-arrow-left'></i> Voltar ao Índice de Manuais
+		</a>
+
+		<div class="alert h5 alert-primary text-left" role="alert">
+		  <i class='fas fa-book'style='font-size:20px;color:#3DAEE9'></i><strong> INTRODUÇÃO</strong>
+		</div>
+			
+		<p class="text-justify">O módulo <strong>Gestão de Glosas</strong> é responsável pela análise e gerenciamento dos pagamentos realizados pelo convênio, podendo o 
+		gestor de glosas identificar todas as contas e seus respectivos itens que por algum motivo foram glosados pela operadora.</p>
+
+		<p class="text-justify">Com uma tela fácil e intuitiva, o gestor de glosas poderá gerenciar as informações de forma rápida e segura, permitindo a ele selecionar 
+		todas as contas que deverão ser vinculadas ao demonstrativo de pagamento e identificando com o motivo de glosa (<strong>Aceito</strong> ou <strong>Não aceito</strong>),
+		todos os itens que foram glosados pela operadora.</p>
+
+		<p class="text-justify">O módulo possibilita ao gestor de glosas o cadastro do demonstrativo e vinculação de contas manualmente, processo esse utilizado nos casos 
+		em que a operadora ainda não disponibiliza o arquivo <strong>Demonstrativo de Análise de Contas</strong> no formato <strong>XML</strong>, bem como o processo de 
+		importação, que cria o demonstrativo automaticamente, vinculando todas as contas, e identificando também de forma automática todos as contas e itens com as suas 
+		respectivas glosas.</p>
+<!--		
+		<fieldset class="fieldset-border">
+		  <legend class="legend-border"><i class='fas fa-book'style='font-size:20px;color:#3DAEE9'></i> Teste </legend>
+		  <p class="text-justify">O módulo possibilita ao gestor de glosas o cadastro do demonstrativo e vinculação de contas manualmente, processo esse utilizado nos casos 
+		em que a operadora ainda não disponibiliza o arquivo <strong>Demonstrativo de Análise de Contas</strong> no formato <strong>XML</strong>, bem como o processo de 
+		importação, que cria o demonstrativo automaticamente, vinculando todas as contas, e identificando também de forma automática todos as contas e itens com as suas 
+		respectivas glosas.</p>
+		</fieldset>
+-->
+		<p class="text-justify">Vamos conhecer o módulo <strong>Gestão de Glosas?</strong></p>
+		
+		<hr><br>
+
+<!-- Cadastro do Demonstrativo de Pagamento -->
+		<h5><i class='fas fa-tasks'style='font-size:20px;color:#3DAEE9'></i> <a class="text"> DEMONSTRATIVO</a></h5>
+	
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb">
+			<li class="breadcrumb-item"><a>Cadastro</a></li>
+			<li class="breadcrumb-item"><a>Demonstrativo</a></li>
+		  </ol>
+		</nav>
+			
+<!-- Finalidade da tela -->
+		<p class="text-justify">A tela Demonstrativo de Pagamentos tem como principal finalidade possibilitar o registro de forma simplificada das informações 
+		pertinentes ao <strong>Demonstrativo de Análise de Contas</strong> disponibilizadas pela operadora de saúde que compreendem o referido pagamento.</p><br>
+
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/GGCA001_T.PNG" class="img-fluid" alt="Demonstrativo de Pagamentos"><br><br>
+
+<!-- Funcionalidades da tela -->
+		<h5><i class='fas fa-user-cog'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Funcionalidades</a></h5>
+
+		<p class="text-justify">Ao abrir a tela Demonstrativo de Pagamentos, o usuário deverá selecionar o convênio desejado e informar a competência do 
+		demonstrativo, que poderá ser igual a competência do lote.</p>
+
+		<p class="text-justify">Demais campos da tela não são de preenchimento obrigatório, porém, poderão ajudar a identificar facilmente o demonstrativo em uma 
+		pesquisa futura, como exemplo o preenchimento do campo <strong>Observações</strong>, onde poderemos colocar informações referentes ao lote de faturamento.</p>
+
+		<p class="text-justify">Os campos referentes aos valores recebidos e glosados estarão disponíveis para preenchimento manual durante o cadastramento do 
+		demonstrativo, porém, sugerimos que eles sejam deixados em branco, pois eles serão preenchidos automaticamente durante o gerenciamento dos recursos 
+		registrados no processo <strong>Conciliação de Contas</strong>.</p>
+
+		<p class="text-justify">Após preencher os campos da tela, o usuário deverá salvar clicando no botão   
+		<i class='fas fa-save'style='font-size:17px;color:Black'></i> na barra superior, com essa ação, o número do demonstrativo será gerado automaticamente e o 
+		status inicial será colocado como <strong>AGUARDANDO VÍNCULOS</strong>, status esse que será ajustado a cada processo realizado.</p>
+
+		<p class="text-justify">No canto superior direito da tela existe dois botões que darão acesso aos processos <strong>Conciliação de Contas</strong> e 
+		<strong>Consistir Demonstrativo</strong>, porém, esses botões só terão efeito após o demonstrativo ser cadastrado.</p><br>
+
+<!-- Botão para acionar modal -->
+		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalExemplo">
+		  <i class='fas fa-video'style='font-size:12px;color:Write'></i> <a class="text"> Assistir Vídeo</a>
+		</button>
+
+			<!-- Modal -->
+		<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel" style="color:Back"><i class='fas fa-video'style='font-size:20px;color:SteelBlue'></i> Demonstrativo de Pagamentos</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<video controls="controls" width="100%" height="100%" autoplay>
+					<source src="videos/GGCA001_T.MP4">
+				</video>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+					<i class='fas fa-sign-out-alt'style='font-size:14px;color:Write'></i> Fechar Demonstração
+				</button>
+			  </div>
+			</div>
+		  </div>
+		</div><br><br><br>
+
+<!-- Cadastro de Sinaleira -->	
+		<h5><i class='fas fa-tasks'style='font-size:22px;color:#3DAEE9'></i><a class="text"> SINALEIRA</a></h5>
+	
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item" style="font-size:13px"><a>Cadastro</a></li>
+				<li class="breadcrumb-item" style="font-size:13px"><a>Sinaleira</a></li>
+			  </ol>
+			</nav>
+			
+		<p class="text-justify">A tela Sinaleira tem como principal finalidade possibilitar o cadastro da faixa de percentuais de glosas que serão utilizadas na 
+		tela <strong>Conciliar Demonstrativo</strong>, a fim de identificar o percentual de glosa de cada conta e item da conta.</p><br>
+		
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/GGCA002_T.PNG" class="img-fluid" alt="Cadastro de Sinaleira de Glosa"><br><br>
+
+<!-- Funcionalidades da tela -->
+		<h5><i class='fas fa-user-cog'style='font-size:17px;color:#3DAEE9'></i><a class="text"> Funcionalidades</a></h5>
+
+		<p class="text-justify">Ao abrir a tela, o usuário irá visualizar a faixa de percentuais já cadastrados no sistema, porém, caso deseje alterar essas 
+		informações, ele poderá fazê-lo, informando os novos percentuais linha a linha, bastando pressionar a tecla <strong>TAB</strong> para que seja aberta uma 
+		nova linha até completar o ciclo de 100%.</p>
+		
+		<p class="text-justify">Para cada sinaleira registrada, o usuário deverá definir uma cor específica que irá identificar o percentual de glosa da conta e 
+		itens da conta na tela <strong>Conciliação de Contas</strong>, para definir a cor, basta clicar no campo <strong>Cor</strong> localizado no final de cada 
+		linha e selecionar uma cor específica na tela que será aberta.</p><br>
+		
+		<div class="alert alert-warning" role="alert">
+			<h5 class="alert-heading"><i class='fas fa-exclamation-triangle'style='font-size:20px'></i> Atenção!!!</h5>
+			<p class="text-justify">O percentual inicial da sinaleira não poderá ser igual ao percentual final da sinaleira anterior, caso isso ocorra, a mensagem 
+			Valor final da faixa deve ser menor que o valor inicial da próxima faixa será disparada.</p>
+		</div><br>
+		
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:17px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/GGCA002_TB.PNG" class="img-fluid" alt="Cores da Sinaleira"><br><br>
+
+		<p class="text-justify">Após registrar todos os percentuais da sinaleira e selecionar as cores para cada uma delas, o usuário deverá salvar clicando no botão  
+		<i class='fas fa-save'style='font-size:17px;color:Black'></i> na barra superior.</p>
+
+		<div class="alert alert-warning" role="alert">
+			<h5 class="alert-heading"><i class='fas fa-exclamation-triangle'style='font-size:20px'></i> Atenção!!!</h5>
+			<p class="text-justify">A cor de uma sinaleira não poderá ser igual a uma cor selecionada anteriormente, caso isso ocorra, a mensagem <strong>A cor 
+			selecionada já está em uso por outro registro</strong> será disparada na tela.</p>
+		</div><br>
+
+		<!-- Botão para acionar modal -->
+		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalExemplo1">
+		  <i class='fas fa-video'style='font-size:12px;color:Write'></i> <a class="text"> Assistir Vídeo</a>
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="modalExemplo1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel" style="color:Back"><i class='fas fa-video'style='font-size:20px;color:SteelBlue'></i> Sinaleira</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<video controls="controls" width="100%" height="100%">
+					<source src="videos/GGCA002_T.MP4">
+				</video>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+					<i class='fas fa-sign-out-alt'style='font-size:14px;color:Write'></i> Fechar Demonstração
+				</button>
+			  </div>
+			</div>
+		  </div>
+		</div><br><br><br>
+
+<!-- Cadastro de Motivo de Glosa -->	
+		<h5><i class='fas fa-tasks'style='font-size:22px;color:#3DAEE9'></i><a class="text"> MOTIVO GLOSA</a></h5>
+	
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item" style="font-size:13px"><a>Cadastro</a></li>
+				<li class="breadcrumb-item" style="font-size:13px"><a>Motivo Glosa</a></li>
+				<li class="breadcrumb-item" style="font-size:13px"><a>Convênios</a></li>
+			  </ol>
+			</nav>
+			
+		<p class="text-justify">A tela Motivo de Glosa tem como finalidade o cadastro dos principais motivos com maior ocorrência de glosas no faturamento ou de 
+		ocorrências mais usuais que poderão ser utilizadas durante o processo.</p><br>
+
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/FCCA010_T.PNG" class="img-fluid" alt="Motivo Glosa"><br><br>
+
+<!-- Funcionalidades da tela -->		
+		<h5><i class='fas fa-user-cog'style='font-size:17px;color:#3DAEE9'></i> <a class="text">Funcionalidades</a></h5>
+
+		<p class="text-justify">Ao abrir a tela, o usuário deverá digitar a <strong>Descrição</strong> e <strong>Descrição Sucinta</strong> de forma clara e 
+		objetiva para facilitar sua identificação durante o processo de conciliação de contas, pois será através dessas descrições que o usuário irá selecionar 
+		o motivo de glosa que serão vinculadas aos itens glosados pela operadora, momento esse que irá definir se o item glosado será aceito ou se a ele caberá 
+		um recurso.</p>
+
+		<p class="text-justify">No campo <strong>Registro TISS</strong>, o usuário deverá selecionar o motivo de glosa da tabela 38-Terminologia de Mensagens 
+		da ANS, a fim de vinculá-lo ao motivo de glosa que está sendo cadastrado no sistema, motivo esse que será levado para o arquivo recurso de glosa 
+		<strong>(XML)</strong>, bem como a guia de recurso impressa.</p>
+
+		<p class="text-justify">O CheckBox <strong>Aceita Glosa</strong>, uma vez selecionado, irá definir que o motivo de glosa será aceito pelo hospital e a 
+		ele não caberá nenhum recurso</p>
+
+		<p class="text-justify">Após preencher os campos da tela, o usuário deverá salvar o motivo de glosa clicando no botão 
+		<i class='fas fa-save'style='font-size:17px;color:Black'></i> na barra superior, com essa ação, o número do motivo de glosa será gerado automaticamente.</p>
+
+		<!-- Botão para acionar modal -->
+		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalExemplo2">
+		  <i class='fas fa-video'style='font-size:12px;color:Write'></i> <a class="text"> Assistir Vídeo</a>
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="modalExemplo2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel" style="color:Back"><i class='fas fa-video'style='font-size:20px;color:SteelBlue'></i> Motivo Glosa</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<video controls="controls" width="100%" height="100%">
+					<source src="videos/FCCA010_T.MP4">
+				</video>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+					<i class='fas fa-sign-out-alt'style='font-size:14px;color:Write'></i> Fechar Demonstração
+				</button>
+			  </div>
+			</div>
+		  </div>
+		</div><br><br><br>
+
+<!-- Conciliação de Contas -->	
+		<h5><i class='fas fa-tasks'style='font-size:20px;color:#3DAEE9'></i><a class="text"> CONCILIAR DEMONSTRATIVO</a></h5>
+	
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item" style="font-size:13px"><a>Movimento</a></li>
+				<li class="breadcrumb-item" style="font-size:13px"><a>Convênios</a></li>
+				<li class="breadcrumb-item" style="font-size:13px"><a>Conciliar Demonstrativo</a></li>
+			  </ol>
+			</nav>
+			
+		<p class="text-justify">A tela Conciliar Demonstrativo tem como principal finalidade, o gerenciamento de contas de um determinado lote ou lotes e seus 
+		respectivos itens identificados no arquivo <strong>Demonstrativo de Análise de Contas</strong> disponibilizado pela operadora.</p><br>
+
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/GGMV001_T.PNG" class="img-fluid" alt="Conciliação de Contas"><br><br>
+
+<!-- Funcionalidades da tela -->		
+		<h5><i class='fas fa-user-cog'style='font-size:20px;color:#3DAEE9'></i> <a class="text">Funcionalidades</a></h5>
+
+		<p class="text-justify">Ao abrir a tela, o usuário deverá informar o número do demonstrativo de pagamento no campo <strong>Nr Dem</strong> e dar um TAB, 
+		após essa ação, serão mostradas na tela as informações referentes ao <strong>Status</strong>, <strong>Competência</strong>, <strong>Convênio</strong> e 
+		<strong>Inclusão</strong>.</p>
+
+		<p class="text-justify">Se preferir, o usuário poderá pesquisar o demonstrativo de pagamento através da  
+		<i class='fas fa-search'style='font-size:17px;color:Black'></i> localizada ao lado do campo <strong>Nr Dem</strong>, que ao clicar, abrirá a <strong>
+		Pesquisa Demonstrativo de Pagamento</strong> onde deverá ser informado o convênio.</p><br>
+
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/GGMV006_T.PNG" class="img-fluid" alt="Pesquisa Demonstrativo de Pagamento"><br><br>
+
+		<p class="text-justify">Uma vez localizado o demonstrativo desejado, o usuário poderá dar um <strong>duplo clique</strong> para que as informações sejam 
+		levadas para a tela de conciliação.</p>
+
+		<p class="text-justify">Caso o demonstrativo de pagamento não tenha sido cadastrado anteriormente, é possível acessar a tela de cadastro diretamente pela tela 
+		<strong>Conciliação de Contas</strong>, bastando o usuário clicar no botão Demonstrativo de Pagamentos ao lado da 
+		<i class='fas fa-search'style='font-size:17px;color:Black'></i> de pesquisa, com essa ação, o usuário será direcionado para a tela Demonstrativo de Pagamentos 
+		e assim realizar o cadastro.</p>
+
+		<p class="text-justify">Com o demonstrativo cadastrado e com as informações na tela de conciliação, o usuário poderá pesquisar as contas que deverão ser 
+		vinculadas ao demonstrativo, para isso, o usuário deverá ter em mãos o <strong>Demonstrativo de Análise de Contas</strong> disponibilizado pela operadora, 
+		e decidir a forma de pesquisa desejada.</p>
+
+		<p class="text-justify">Se o usuário optar por realizar uma pesquisa de todas as contas, o primeiro passo que deverá ser realizado é selecionar a opção 
+		<strong>Não vinculadas</strong> e clicar no botão <strong>Pesquisar Contas</strong>, dessa forma todas as contas relacionadas ao convênio e competência do 
+		demonstrativo serão levadas para a tela.</p>
+
+		<p class="text-justify">Se o usuário optar por realizar uma pesquisa de contas mais detalhada, alguns campos da tela poderão ser preenchidos com informações 
+		do tipo <strong>Nr Guia Aut</strong>, <strong>Data Atend</strong>, <strong>Carteira</strong>, <strong>Lote</strong>, <strong>Tipo Atend</strong> ou 
+		<strong>Paciente</strong>, não esquecendo de selecionar a opção <strong>Não vinculadas</strong> antes de clicar no botão <strong>Pesquisar Contas</strong>.</p>
+
+<!-- Início Collapse - Rever Tela Conciliação de Contas -->
+		<p class="text-center">
+		  <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
+			<i class='fas fa-comment-dots'style='font-size:15px;color:White'></i> Rever Tela Conciliação de Contas
+		  </a>
+		</p>
+		<div class="collapse" id="collapseExample">
+		  <div class="card card-body">
+			<img src="img/GGMV001_T.PNG" class="img-fluid" alt="Conciliação de Contas">
+		  </div>
+		</div><br>
+<!-- Final Collapse  - Rever Tela Conciliação de Contas -->
+
+		<p class="text-justify">Se o <strong>Demonstrativo de Análise de Contas</strong> disponibilizado pela operadora é específico de um lote de faturamento, o 
+		usuário poderá preencher os campos destinados ao lote, dessa forma o sistema trará na grade de contas, somente contas do lote e que até o momento não 
+		tenham sido vinculadas anteriormente a nenhum demonstrativo.</p>
+
+		<p class="text-justify">Após preencher um ou mais campos acima descritos, o usuário deverá clicar no botão <strong>Pesquisar Contas</strong>, onde 
+		informações serão atualizadas na grade de contas contendo os seguintes dados:</p>
+
+		<table class="table table-striped">
+			<tbody>
+			  <tr>
+				<td><strong>TP</strong></td>
+				<td>Conta <strong>E</strong> (Externa) e <strong>I</strong> (Interna)</td>
+			  </tr>
+			  <tr>
+				<td><strong>Nr Conta</strong></td>
+				<td>Nº da conta do paciente</td>
+			  </tr>
+			  <tr>
+				<td><strong>Nr Guia</strong></td>
+				<td>Nº da guia da Operadora</td>
+			  </tr>
+			  <tr>
+				<td><strong><i class='fas fa-check'style='font-size:17px;color:#262626'></i></strong></td>
+				<td>Indica cta foi validada</td>
+			  </tr>
+			  <tr>
+				<td><strong>Dt Atendimento</strong></td>
+				<td>Dta Atendimento da Cta</td>
+			  </tr>
+			  <tr>
+				<td><strong>Paciente</strong></td>
+				<td>Nome do paciente</td>
+			  </tr>
+			  <tr>
+				<td><strong>Vl faturado</strong></td>
+				<td>Valor de fatura da conta</td>
+			  </tr>
+			  <tr>
+				<td><strong><i class='fas fa-arrow-right'style='font-size:17px;color:#262626'></i><i class='fas fa-arrow-right'style='font-size:17px;color:#262626'></i></strong></td>
+				<td>Seta para vínculo de itens</td>
+			  </tr>
+			  <tr>
+				<td><strong>Vl. recebido</strong></td>
+				<td>Vlr pago pelo Convênio</td>
+			  </tr>
+			  <tr>
+				<td><strong>Vl Glosado</strong></td>
+				<td>Valor glosa pela operadora</td>
+			  </tr>
+			  <tr>
+				<td><strong>% Glosado</strong></td>
+				<td>Percentual de glosa do item</td>
+			  </tr>
+			  <tr>
+				<td><strong><i class='fas fa-check-square'style='font-size:17px;color:#262626'></i></strong></td>
+				<td>CheckBox para vincular conta</td>
+			  </tr>
+			</tbody>
+		</table>
+
+		<p class="text-justify">Com todas as contas disponíveis na grade, o usuário poderá realizar o vínculo das contas ao demonstrativo selecionando uma a uma através do 
+		<i class='fas fa-check-square'style='font-size:17px;color:Black'></i> localizado no final de cada linha, e por fim, salvar clicando no botão 
+		<i class='fas fa-save'style='font-size:17px;color:Black'></i> localizado no menu superior da tela, ou clicar no botão indicado por uma seta dupla, 
+		(<strong><i class='fas fa-arrow-right'style='font-size:17px;color:Black'></i><i class='fas fa-arrow-right'style='font-size:17px;color:Black'></i></strong>) 
+		localizada entre as colunas <strong>Vl Faturado</strong> e <strong>Vl Recebido</strong>.</p>
+
+		<div class="alert alert-primary" role="alert">
+			<h5 class="alert-heading"><i class='fas fa-info-circle'style='font-size:20px'></i> Informativo!!!</h5>
+			<p class="text-justify">Realizadas as ações ácima, todas as contas serão transferidas automaticamente para a situação <strong>Vinculadas</strong>.</p>
+		</div><br>
+			
+		<p class="text-justify">Utilizando a segunda forma de vinculação, o campo <strong>Vl Recebido</strong> será atualizado automaticamente na parte superior da tela, 
+		diferente da primeira forma, que atualiza esse mesmo campo somente após clicarmos na seta dupla 
+		(<strong><i class='fas fa-arrow-right'style='font-size:17px;color:Black'></i><i class='fas fa-arrow-right'style='font-size:17px;color:Black'></i></strong>) conta 
+		a conta.</p>
+
+<!-- Início Collapse - Rever Tela Conciliação de Contas -->
+		<p class="text-center">
+		  <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
+			<i class='fas fa-comment-dots'style='font-size:15px;color:White'></i> Rever Tela Conciliação de Contas
+		  </a>
+		</p>
+		<div class="collapse" id="collapseExample">
+		  <div class="card card-body">
+			<img src="img/GGMV001_T.PNG" class="img-fluid" alt="Conciliação de Contas">
+		  </div>
+		</div><br>
+<!-- Final Collapse  - Rever Tela Conciliação de Contas -->
+
+		<p class="text-justify">Após realizar o vínculo de todas as contas, o usuário deverá selecionar a opção de filtro <strong>Vinculadas</strong> e clicar no botão 
+		<strong>Pesquisar Contas</strong>, dessa forma, todas as contas vinculadas serão visualizadas novamente na grade.</p>
+
+		<p class="text-justify">Com as contas devidamente vinculadas ao demonstrativo, o usuário deverá selecionar a conta clicando sobre ela, realizado essa ação, todos 
+		os itens que compõem a conta serão atualizadas na grade inferior da tela.</p>
+
+		<p class="text-justify">Nesse primeiro momento, os valores recebidos dos itens (<strong>Vl Recebido</strong>) não serão contabilizados na tela, e para que sejam 
+		atualizados será necessário clicar novamente na seta dupla (<strong><i class='fas fa-arrow-right'style='font-size:17px;color:Black'></i>
+		<i class='fas fa-arrow-right'style='font-size:17px;color:Black'></i></strong>) localizada entre as colunas <strong>Vl Faturado</strong> e <strong>Vl 
+		Recebido</strong> na grade superior.</p>
+
+		<p class="text-justify">Realizado os passos anteriores, o usuário deverá analisar todos os itens conta a conta, dando atenção especial aos itens com as glosas 
+		apontadas pela	operadora, registrando o motivo da glosa e definindo quais itens serão dados como <strong>Glosa Aceita</strong> bem como aqueles itens onde 
+		cabe um recurso, informando o <strong>Motivo da Glosa</strong> e <strong>Justificativa</strong>.</p>
+		
+		<p class="text-justify">Na grade de itens o usuário poderá visualizar os itens de forma individualizada, pois a tela possui uma funcionalidade de visualização por
+		grupo no formato árvore, identificada pelo sinal <i class='far fa-plus-square'style='font-size:17px;color:Black'></i>.</p>
+		<p><strong>Exemplo:</strong> <i class='far fa-plus-square'style='font-size:17px;color:Black'></i> Materiais e Medicamentos</p>
+		
+		<p class="text-justify">Para facilitar a visualização de itens por grupo, o usuário deverá clicar no sinal 
+		<i class='far fa-minus-square'style='font-size:17px;color:Black'></i> localizado no início de cada grupo, dessa forma, ele poderá tanto inibir como mostrar os itens 
+		que fazem parte do grupo.</p>
+
+<!-- Início Collapse - Rever Tela Conciliação de Contas -->
+		<p class="text-center">
+		  <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
+			<i class='fas fa-comment-dots'style='font-size:15px;color:White'></i> Rever Tela Conciliação de Contas
+		  </a>
+		</p>
+		<div class="collapse" id="collapseExample">
+		  <div class="card card-body">
+			<img src="img/GGMV001_T.PNG" class="img-fluid" alt="Conciliação de Contas">
+		  </div>
+		</div><br>
+<!-- Final Collapse  - Rever Tela Conciliação de Contas -->
+
+		<p class="text-justify">A grade de itens possui uma funcionalidade de pesquisa que irá ajudar a localizar facilmente um item, para acioná-la o usuário deverá clicar 
+		com o botão direito do mouse em qualquer parte da grade, com essa ação, a tela <strong>Filtro de Itens da conta</strong> abrirá, onde o usuário poderá escolher 
+		algumas das opções de filtro disponibilizadas, como exemplo, <strong>Tipo de item</strong> (Diárias, Kits, Procedimentos e Produtos), <strong>Data de 
+		lançamento</strong> ou informando <strong>Parte da Descrição</strong> do item.</p><br>
+		
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/FILTRO_DE_ITENS.PNG" class="img-fluid" alt="Filtro de Itens da Conta"><br><br>
+
+		<p class="text-justify">Quando selecionamos uma conta na grade superior, todos os itens da conta são mostrados em sua totalidade na grade inferior, separados por grupo 
+		de item, ou seja, <strong>OPME</strong>, <strong>Diárias</strong>, <strong>Procedimentos</strong>, <strong>Produtos</strong> e <strong>Kits</strong>.</p>
+
+		<p class="text-justify">Por padrão, o grupo <strong>OPME</strong> será mostrado no topo da grade de itens, considerando que esse tipo de item, por ter valores 
+		expressivos, são considerados os mais importantes.</p>
+
+		<p class="text-justify">A barra horizontal localizada no centro da tela, entre as grades superior e inferior, possui uma funcionalidade bastante interessante que 
+		permite ao usuário arrastá-la tanto para cima bem como para baixo, permitindo assim aumentar a visibilidade na quantidade de contas na grade superior bem como de 
+		itens na grade inferior.</p>
+
+		<p class="text-justify">O primeiro passo para registrarmos os valores de glosas, é identificar as contas que se encontram nessa situação no demonstrativo de análise 
+		de pagamento da operadora, uma vez identificada, o usuário deverá lançar o valor de glosa na coluna <strong>Vl Glosado</strong> na grade de contas.</p>
+
+		<p class="text-justify">Quando um valor de glosa é informado na coluna <strong>Vl Glosado</strong> na grade superior, o campo <strong>Vl Glosado</strong> na parte 
+		superior da tela será atualizado automaticamente.</p>
+
+		<p class="text-justify">Após lançarmos o valor de glosa na coluna <strong>Vl Glosado</strong> na grade de contas, o sistema irá lançar o percentual de glosa 
+		automaticamente na coluna <strong>% Glosado</strong>, atualizando também a cor da sinaleira, levando em consideração o intervalo do percentual de glosa cadastrado 
+		no processo cadastro de sinaleiras.</p>
+
+<!-- Início Collapse - Rever Tela Conciliação de Contas -->
+		<p class="text-center">
+		  <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
+			<i class='fas fa-comment-dots'style='font-size:15px;color:White'></i> Rever Tela Conciliação de Contas
+		  </a>
+		</p>
+		<div class="collapse" id="collapseExample">
+		  <div class="card card-body">
+			<img src="img/GGMV001_T.PNG" class="img-fluid" alt="Conciliação de Contas">
+		  </div>
+		</div><br>
+<!-- Final Collapse  - Rever Tela Conciliação de Contas -->
+
+		<p class="text-justify">Quando um valor de glosa é lançado para uma determinada conta, o mesmo deverá ser feito para o item ou itens na coluna <strong>Valor 
+		Glosado</strong> na grade inferior da tela.</p>
+
+		<p class="text-justify">Se a glosa do item for de 100%, podemos também informar a quantidade glosada na coluna <strong>QT G</strong>, dessa forma o sistema zera 
+		o valor da coluna <strong>Valor Recebido</strong>, atualiza o valor total do item na coluna <strong>Valor Glosado</strong> e o percentual de 100% de glosa na coluna 
+		<strong>% Glosa</strong>.</p>
+
+		<p class="text-justify">Igualmente ao processo de lançamento de glosa na conta, a cor da sinaleira também é atualizada para o item, levando em consideração o 
+		intervalo do percentual de glosa cadastrado no processo cadastro de sinaleiras.</p>
+
+		<p class="text-justify">Quando uma quantidade ou valor de glosa é informado na grade de itens, obrigatoriamente teremos que selecionar o motivo de glosa no campo 
+		<strong>Glosar Grupo</strong>, seja o motivo de glosas <strong>Aceito</strong> ou <strong>Não Aceito</strong>.</p>
+		
+		<p class="text-justify">Caso exista mais de um item com valor de glosa informado, e o motivo de glosa for comum entre eles, o usuário poderá replicar o motivo de 
+		para todos os itens ao mesmo tempo, para isso, basta clicar nos <i class='fas fa-ellipsis-h'style='font-size:12px;color:Write'></i> no cabeçalho da coluna 
+		<strong>Motivo Glosa</strong>.</p>
+
+		<p class="text-justify">Caso o usuário selecione o motivo de glosa <strong>Aceita</strong>, o valor de glosa do item será considerado como <strong>Perda</strong>, 
+		porém, se a opção selecionada for um motivo de glosa <strong>Não Aceita</strong>, o valor recursado será contabilizado, gerando uma parcela no <strong>Contas a 
+		Receber</strong> do módulo financeiro durante o processo <strong>Encerrar Demonstrativo</strong>.</p>
+
+<!-- Início Collapse - Rever Tela Conciliação de Contas -->
+		<p class="text-center">
+		  <a class="btn btn-primary btn-sm" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" >
+			<i class='fas fa-comment-dots'style='font-size:15px;color:White'></i> Rever Tela Conciliação de Contas
+		  </a>
+		</p>
+		<div class="collapse" id="collapseExample">
+		  <div class="card card-body">
+			<img src="img/GGMV001_T.PNG" class="img-fluid" alt="Conciliação de Contas">
+		  </div>
+		</div><br>
+<!-- Final Collapse  - Rever Tela Conciliação de Contas -->
+
+		<p class="text-justify">Ao selecionar um motivo de glosa <strong>Não Aceita</strong>, o botão <strong>Recursar Glosa</strong> identificado pelo botão
+		<strong>[<i class='fas fa-ellipsis-h'style='font-size:12px;color:Red'></i>]</strong> no final da linha, ao clicar nesse botão, uma tela 
+		<strong>Recurso de Glosa</strong> será aberta.</p>
+
+		<p class="text-justify">Na tela <strong>Recurso de Glosa</strong> o usuário deverá digitar detalhadamente a justificativa pelo qual está recursando o item, pois 
+		essa informação será levada para a <strong>Guia de Recurso de Glosas</strong> bem como para o arquivo <strong>XML</strong> de recurso de glosa.</p>
+
+		<p class="text-justify">Na tela <strong>Recurso de Glosa</strong>, a opção <strong>Replicar recurso</strong>, quando selecionada, irá replicar o texto digitado 
+		no campo justificativa para todos os itens com o motivo de glosa <strong>Não Aceita</strong>.</p>
+
+		<p class="text-justify">Após gerenciar todos os lançamentos, informando o valor de glosa para as contas e seus respectivos itens, o próximo passo a ser realizado 
+		é a consistência, que poderá ser acionado no botão <strong>Consistir</strong> na parte superior da tela conciliação de contas, ou pelo menu <strong>Consistir 
+		Demonstrativo</strong>.</p>
+
+<!-- Botão para acionar modal -->
+		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalExemplo3">
+		  <i class='fas fa-video'style='font-size:12px;color:Write'></i> <a class="text"> Assistir Vídeo</a>
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="modalExemplo3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel" style="color:Back"><i class='fas fa-video'style='font-size:20px;color:SteelBlue'></i> Conciliação de Contas</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<video controls="controls" width="100%" height="100%">
+					<source src="videos/GGMV001_T.MP4">
+				</video>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Fechar Demonstração</button>
+			  </div>
+			</div>
+		  </div>
+		</div><br><br><br>
+
+<!-- Consistir Demonstrativo -->	
+		<h5><i class='fas fa-tasks'style='font-size:20px;color:#3DAEE9'></i><a class="text"> CONSISTIR DEMONSTRATIVO</a></h5>
+
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item" style="font-size:13px"><a>Movimento</a></li>
+				<li class="breadcrumb-item" style="font-size:13px"><a>Convênios</a></li>
+				<li class="breadcrumb-item" style="font-size:13px"><a>Consistir Demonstrativo</a></li>
+			  </ol>
+			</nav>
+			
+		<p class="text-justify">A tela Consistir Demonstrativo tem como principal finalidade, realizar a consistência de valores entre os lançamentos informados na grade de 
+		contas com os valores informados na grade de itens, bem como a verificação da possível falta de motivo de glosas e informações relacionados ao recurso de glosas que 
+		porventura não sejam informados em itens que serão recursados.</p><br>
+
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/GGMV003_T.PNG" class="img-fluid" alt="Consistir Demonstrativo"><br><br>
+
+<!-- Funcionalidades da tela -->		
+		<h5><i class='fas fa-user-cog'style='font-size:20px;color:#3DAEE9'></i> <a class="text">Funcionalidades</a></h5>
+
+		<p class="text-justify">Ao abrir a tela, o usuário deverá informar o número do demonstrativo de pagamento no campo <strong>Nr Dem</strong> e dar um <strong>TAB</strong>, 
+		ou se preferir, o usuário poderá realizar uma pesquisa através da <i class='fas fa-search'style='font-size:17px;color:Black'></i> localizada ao lado do campo 
+		<strong>Nr Dem</strong>, que ao clicar, abrirá a tela solicitando ao usuário informar obrigatoriamente o convênio.</p><br>
+
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/GGMV006_T.PNG" class="img-fluid" alt="Pesquisa Demonstrativo de Pagamento"><br><br>
+
+		<p class="text-justify">Após realizar uma das ações acima, o usuário irá visualizar na tela todas as informações relacionadas ao <strong>Status</strong> (Em Análise), 
+		<strong>Competência</strong>, <strong>Convênio</strong>, <strong>Inclusão</strong>, <strong>Vl Recebido</strong> e <strong>Vl Glosado</strong>, bem como a 
+		relação de contas que foram vinculadas ao demonstrativo durante o processo <strong>Conciliação de Contas</strong>, com os seus respectivos valores faturados, 
+		recebidos e glosados.</p>
+
+		<p>Na grade serão visualizadas as seguintes informações:</p>
+
+		<table class="table table-striped">
+			<tbody>
+			  <tr>
+				<td><strong><i class='far fa-plus-square'style='font-size:17px;color:#262626'></i></strong></td>
+				<td>Botão p/ exibir detalhes da Cta</td>
+			  </tr>
+			  <tr>
+				<td><strong>TP</strong></td>
+				<td>Conta <strong>E</strong> (Externa) e <strong>I</strong> (Interna)</td>
+			  </tr>
+			  <tr>
+				<td><strong>Nr Conta</strong></td>
+				<td>Nº da conta do paciente</td>
+			  </tr>
+			  <tr>
+				<td><strong>Nr Guia</strong></td>
+				<td>Nº da guia da Operadora</td>
+			  </tr>
+			  <tr>
+				<td><strong>Dt Atendimento</strong></td>
+				<td>Dta Atendimento da Cta</td>
+			  </tr>
+			  <tr>
+				<td><strong>Nm Paciente</strong></td>
+				<td>Nome do paciente</td>
+			  </tr>
+			  <tr>
+				<td><strong>Vl faturado</strong></td>
+				<td>Valor de fatura da conta</td>
+			  </tr>
+			  <tr>
+				<td><strong>Vl. recebido</strong></td>
+				<td>Vlr pago pelo Convênio</td>
+			  </tr>
+			  <tr>
+				<td><strong>Vl Glosado</strong></td>
+				<td>Valor glosa pela operadora</td>
+			  </tr>
+			  <tr>
+				<td><strong><i class='fas fa-check-square'style='font-size:17px;color:#262626'></i></strong></td>
+				<td>CheckBox Consistir Conta</td>
+			  </tr>
+			</tbody>
+		</table>
+
+		<p class="text-justify">A consistência de contas poderá ser realizada de 02 formas na tela <strong>Consistir Demonstrativo</strong>, sendo a primeira através do 
+		botão <strong> Consistir</strong> que tem a função de consistir todas as contas de uma única vez, e a segunda forma é realizar a consistência conta a conta, através 
+		do CheckBox no final de cada linha da grade.</p>
+		
+		<p class="text-justify">Para que possamos identificar se uma determinada conta foi ou não consistida, devemos observar a cor do CheckBox no final da linha da grade, 
+		que	estarão identificadas da seguinte forma:</p>
+		
+		<p> <i class='far fa-window-close'style='font-size:17px;color:Red'></i> CheckBox indicando que a conta não foi consistida</p>
+		<p> <i class='far fa-check-square'style='font-size:17px;color:Green'></i> CheckBox indicando que a conta foi consistida</p><br>
+		
+		<p class="text-justify">Durante o processo, algumas críticas poderão ocorrer, críticas essas que dependendo do problema encontrado, serão mostradas na tela 
+		<strong>Retorno de Validação de Demonstrativo</strong> que será aberta sempre que uma inconsistência for identificada.</p><br>
+
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/GGMV005_T.PNG" class="img-fluid" alt="Retorno de Validação de Demonstrativo"><br><br>
+		
+		<p>Na grade serão visualizadas as seguintes informações:</p>
+
+		<table class="table table-striped">
+			<tbody>
+			  <tr>
+				<td><strong>Crítica</strong></td>
+				<td>Código de cadastro da crítica</td>
+			  </tr>
+			  <tr>
+				<td><strong>Nr Conta</strong></td>
+				<td>Nº da conta do paciente</td>
+			  </tr>
+			  <tr>
+				<td><strong>TP</strong></td>
+				<td>Tp crítica <strong>I</strong>tem, <strong>C</strong>onta e <strong>D</strong>emonstrativo</td>
+			  </tr>
+			  <tr>
+				<td><strong>Retorno</strong></td>
+				<td>Desc de cadastro da crítica</td>
+			  </tr>
+			  <tr>
+				<td><strong>Id Conta</strong></td>
+				<td>Seq da cta no demonstrativo</td>
+			  </tr>
+			  <tr>
+				<td><strong>Id Item</strong></td>
+				<td>Seq do item no demonstrativo</td>
+			  </tr>
+			</tbody>
+		</table>
+
+		<p class="text-justify">Se, durante o processo <strong>Consistir Demonstrativo</strong> ocorrer alguma crítica, o usuário deverá voltar para a tela 
+		<strong>Conciliação de Contas</strong> para realizar os devidos ajustes. Na tela de consistência existe um botão <strong>Ajustar</strong> que ao ser acionado, 
+		levará o usuário diretamente para a tela de conciliação sem a necessidade de fechar a tela de consistência.</p>
+		
+		<p class="text-justify">Após realizar os ajustes necessários e realizar novamente a consistência sem apresentar nenhuma crítica, na parte inferior da tela 
+		<strong>Consistir Demonstrativo</strong> será disponibilizado o botão <strong>Liberar</strong> que uma vez acionado, irá liberar o demonstrativo de pagamento 
+		para o processo de encerramento de demonstrativo.</strong>
+
+		<div class="alert alert-warning" role="alert">
+			<h5 class="alert-heading"><i class='fas fa-exclamation-triangle'style='font-size:20px'></i> Atenção!!!</h5>
+			<p class="text-justify">O botão <strong>Liberar</strong> da tela <strong>Consistir Demonstrativo</strong> ficará bloqueado após a liberação do demonstrativo 
+			de pagamento e somente ficará disponível mediante um cancelamento, processo esse que poderá ser realizado caso o usuário pressione o botão 
+			<strong>Cancelar</strong>, para realizar possíveis ajustes de valores, quantidades de lançamentos, incluir ou excluir itens da tela <strong>Conciliar 
+			Demonstrativo</strong>.</p>
+		</div><br>
+
+<!-- Botão para acionar modal -->
+		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalExemplo4">
+		  <i class='fas fa-video'style='font-size:12px;color:Write'></i> <a class="text"> Assistir Vídeo</a>
+		</button>
+
+<!-- Modal -->
+		<div class="modal fade" id="modalExemplo4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel" style="color:Back"><i class='fas fa-video'style='font-size:20px;color:SteelBlue'></i> Consistir Demonstrativo</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<video controls="controls" width="100%" height="100%">
+					<source src="videos/GGMV003_T.MP4">
+				</video>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Fechar Demonstração</button>
+			  </div>
+			</div>
+		  </div>
+		</div><br><br><br>
+
+<!-- Consistir Demonstrativo -->	
+		<h5><i class='fas fa-tasks'style='font-size:20px;color:#3DAEE9'></i><a class="text"> ENCERRAR DEMONSTRATIVO</a></h5>
+	
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item" style="font-size:13px"><a>Movimento</a></li>
+				<li class="breadcrumb-item" style="font-size:13px"><a>Convênios</a></li>
+				<li class="breadcrumb-item" style="font-size:13px"><a>Encerrar Demonstrativo</a></li>
+			  </ol>
+			</nav>
+			
+		<p class="text-justify">A tela Encerrar Demonstrativo tem como principal finalidade, encerrar o processo do demonstrativo no módulo <strong>Gestão de Glosas</strong> 
+		e realizar  a baixa das contas no processo <strong>Baixa do Contas a Receber</strong> do módulo <strong>Financeiro</strong>.</p><br>
+
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/GGMV007_T.PNG" class="img-fluid" alt="Encerrar Demonstrativo"><br><br>
+
+<!-- Funcionalidades da tela -->		
+		<h5><i class='fas fa-user-cog'style='font-size:20px;color:#3DAEE9'></i> <a class="text">Funcionalidades</a></h5>
+
+		<p class="text-justify">Ao abrir a tela, o usuário deverá informar o número do demonstrativo de pagamento no campo <strong>Nr Dem</strong> e dar um 
+		<strong>TAB</strong>, ou se preferir, o usuário poderá realizar uma pesquisa através da <i class='fas fa-search'style='font-size:17px;color:Black'></i> localizada 
+		ao lado do campo <strong>Nr Dem</strong>, que ao clicar, abrirá a tela solicitando ao usuário informar obrigatoriamente o convênio.</p>
+
+		
+		<p class="text-justify">Após realizar uma das ações acima, o usuário irá visualizar na tela todas as informações relacionadas ao <strong>Status</strong> (Liberado), 
+		<strong>Competência</strong>, <strong>Convênio</strong>, <strong>Inclusão</strong>, <strong>Vl Recebido</strong> e <strong>Vl Glosado</strong>, bem como a 
+		relação de contas que foram vinculadas ao demonstrativo durante o processo <strong>Conciliação de Contas</strong>, com os seus respectivos valores faturados, 
+		recebidos e glosados.</p>
+
+		<p>Na grade serão visualizadas as seguintes informações:</p>
+
+		<table class="table table-striped">
+			<tbody>
+			  <tr>
+				<td><strong><i class='far fa-plus-square'style='font-size:17px;color:#262626'></i></strong></td>
+				<td>Botão p/ exibir detalhes da Cta</td>
+			  </tr>
+			  <tr>
+				<td><strong>TP</strong></td>
+				<td>Conta <strong>E</strong> (Externa) e <strong>I</strong> (Interna)</td>
+			  </tr>
+			  <tr>
+				<td><strong>Nr Guia</strong></td>
+				<td>Nº Guia Autoriz pelo Convênio</td>
+			  </tr>
+			  <tr>
+				<td><strong>Dt Atendimento</strong></td>
+				<td>Data de atendimento da Cta</td>
+			  </tr>
+			  <tr>
+				<td><strong>Vl faturado</strong></td>
+				<td>Valor de fatura da conta</td>
+			  </tr>
+			  <tr>
+				<td><strong>Vl. recebido</strong></td>
+				<td>Vlr Pago pelo Convênio</td>
+			  </tr>
+			  <tr>
+				<td><strong>Vl Glosado</strong></td>
+				<td>Vlr Glosado pelo Convênio</td>
+			  </tr>
+			  <tr>
+				<td><strong>Vl Recursado</strong></td>
+				<td>Vlr Recursado pelo Gestor</td>
+			  </tr>
+			  <tr>
+				<td><strong><i class='fas fa-check-square'style='font-size:17px;color:#262626'></i></strong></td>
+				<td>CheckBox p/ baixa Ctas a Rec</td>
+			  </tr>
+			  <tr>
+				<td><strong>Lote</strong></td>
+				<td>Nº do(s) Lote(s) Faturamento</td>
+			  </tr>
+			  <tr>
+				<td><strong>Competência</strong></td>
+				<td>Ano e Mês do(s) Lote(s)</td>
+			  </tr>
+			</tbody>
+		</table><br>
+
+		<div class="alert alert-primary" role="alert">
+			<h5 class="alert-heading"><i class='fas fa-info-circle'style='font-size:20px'></i> Informativo!!!</h5>
+			  <p class="text-justify">As contas vinculadas ao demonstrativo de pagamento poderão ser de um lote específico ou de vários lotes, e serão mostradas na grade de 
+			  forma individual.</p>
+		</div><br>
+
+		<p class="text-justify">Na tela <strong>Encerrar Demonstrativo</strong>, o encerramento do lote deverá ser realizado individualmente, bem como a baixa no 
+		<strong>Contas a Receber</strong> do módulo Financeiro.</p>
+			
+
+<!-- Botão para acionar modal -->
+		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalExemplo5">
+		  <i class='fas fa-video'style='font-size:12px;color:Write'></i> <a class="text"> Assistir Vídeo</a>
+		</button>
+
+<!-- Modal -->
+		<div class="modal fade" id="modalExemplo5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel" style="color:Back"><i class='fas fa-video'style='font-size:20px;color:SteelBlue'></i> Encerrar Demonstrativo</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<video controls="controls" width="100%" height="100%" autoplay>
+					<source src="videos/GGMV007_T.MP4">
+				</video>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+					<i class='fas fa-sign-out-alt'style='font-size:14px;color:Write'></i> Fechar Demonstração
+				</button>
+			  </div>
+			</div>
+		  </div>
+		</div><br><br><br>
+
+<!-- Footer		
+		<footer class="bg-dark text-white mt-4">
+			<div class="container-fluid py-3">
+				<div class="row">
+					<div class="col-md-3">
+						<h5>Módulo Gestão de Glosas</h5></div>
+					<div class="col-md-3"></div>
+					<div class="col-md-3"></div>
+					<div class="col-md-3"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">Manual do Produto<span class="small"><br>Cadastro e Movimentação.</span></div>
+					<div class="col-md-3"></div>
+					<div class="col-md-3 text-right small align-self-end">©2019 Salux - Informatização em Saúde</div>
+				</div>
+			</div>
+		</footer>
+-->
+
+	</div>
+
+ <!-- JavaScript (Opcional) -->
+ <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script type="text/javascript" src="../../assets/js/jquery.js"></script>
+    <script type="text/javascript" src="../../assets/js/popper.js"></script>
+    <script type="text/javascript" src="../../assets/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../../assets/js/smoothscroll.js"></script> 
+
+  <script src="../../assets/js/voltar-topo.js"></script>
+</body>
+
+</html>

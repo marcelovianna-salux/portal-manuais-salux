@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../../assets/css/estilo.css">
+	<link rel="stylesheet" href="../../../assets/css/scroll.css">
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' 
+	crossorigin='anonymous'>
+	<!-- google web font css -->
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600,700' rel='stylesheet' type='text/css'>
+	
+    <title>Gerador de Documentos - Manual de Instruções)</title>
+	
+	<!-- Favicon -->
+		<link rel="shortcut icon" href="../../../assets/img/favicon.png" type="image/x-icon">
+	<!-- Favicon Final -->
+
+  </head>
+  <body>
+ 
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color:#2B8FD4;">
+      <div class="container" >
+        <a class="navbar-brand h1 mb-0" href="#home"><img src="../../../assets/img/logo_salux_novo.png" height="42" style="width:auto;"></a>
+        <p class="navbar-text h4 mb-0 text-right" style="color:#fff;"><strong>GERADOR DE DOCUMENTOS</strong></p>
+    </nav>
+
+	<div class="container">
+		<br><br><br><br><br>
+
+		<a href="../../../index.html" class="btn btn-outline-primary btn-sm mb-3">
+			<i class='fas fa-arrow-left'></i> Voltar ao Índice de Manuais
+		</a>
+
+		<div class="alert h5 alert-primary text-left" role="alert">
+		  <i class='fas fa-book'style='font-size:20px;color:#3DAEE9'></i><strong> INTRODUÇÃO</strong>
+		</div>
+			
+		<p class="text-justify">O módulo <strong>Gerador de Documentos</strong> é responsável pela criação, manutenção e vinculação dos modelos de documentos 
+		utilizados nas diversas rotinas assistenciais e administrativas do hospital, permitindo ao gestor padronizar a documentação clínica e jurídica do serviço.</p>
+
+		<p class="text-justify">Dentre as funcionalidades disponíveis no módulo, a <strong>Configuração de Prescrições x Documentos Obrigatórios</strong> tem 
+		papel estratégico no processo assistencial, pois garante que, ao prescrever determinados procedimentos, o sistema solicite automaticamente o preenchimento 
+		do documento configurado (por exemplo, <strong>Termo de Consentimento</strong>), contribuindo para a conformidade clínica, jurídica e regulatória.</p>
+
+		<p class="text-justify">A funcionalidade permite ao usuário definir, por <strong>Hospital</strong>, <strong>Unidade</strong> e <strong>Tipo</strong> de 
+		procedimento, quais procedimentos exigirão documento obrigatório no momento da prescrição, e qual o documento (modelo) será vinculado a cada um deles. 
+		Esses parâmetros são utilizados pelo módulo de <strong>Prescrição</strong> para acionar a obrigatoriedade no fluxo de uso.</p>
+
+		<p class="text-justify">Vamos conhecer a funcionalidade <strong>Configuração de Prescrições x Documentos Obrigatórios?</strong></p>
+		
+		<hr><br>
+
+<!-- Acesso à Configuração -->
+		<h5><i class='fas fa-tasks'style='font-size:20px;color:#3DAEE9'></i> <a class="text"> CONFIGURAÇÃO DE PRESCRIÇÕES x DOCUMENTOS OBRIGATÓRIOS</a></h5>
+	
+		<nav aria-label="breadcrumb">
+		  <ol class="breadcrumb">
+			<li class="breadcrumb-item" style="font-size:13px"><a>Vínculo</a></li>
+			<li class="breadcrumb-item" style="font-size:13px"><a>Modelos x Obrigatoriedade Prescrição</a></li>
+		  </ol>
+		</nav>
+			
+<!-- Finalidade da tela -->
+		<p class="text-justify">A tela <strong>Busca Facilitada - Prescrição (EDOV014_T)</strong> tem como principal finalidade possibilitar a configuração 
+		dos procedimentos que exigem documento obrigatório no momento da prescrição, bem como o vínculo do documento (modelo) que será apresentado ao usuário 
+		durante a execução desse fluxo.</p><br>
+
+<!-- Pré-Requisitos -->
+		<h5><i class='fas fa-check-circle'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Pré-Requisitos</a></h5>
+
+		<p class="text-justify">Para o correto funcionamento da configuração, é necessário que estejam previamente cadastrados no sistema os 
+		<strong>Procedimentos</strong> (Exames, Cuidados, Serviços etc.) e os <strong>Documentos (Modelos)</strong> que serão vinculados como obrigatórios. 
+		Esses cadastros são executados em telas próprias do sistema e devem estar ativos no <strong>Hospital</strong> logado.</p>
+
+		<p class="text-justify">O usuário também precisa ter permissão de acesso ao módulo <strong>Gerador de Documentos</strong> e ao menu 
+		<strong>Vínculo › Modelos x Obrigatoriedade Prescrição</strong>.</p><br>
+
+<!-- Acesso ao Menu -->
+		<h5><i class='fas fa-folder-open'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Acesso ao Menu</a></h5>
+
+		<p class="text-justify">Para acessar a tela de configuração, devemos acessar o menu <strong>Vínculo</strong> e logo em seguida o item 
+		<strong>Modelos x Obrigatoriedade Prescrição</strong>.</p>
+		<img src="img/MENU_VINCULO.png" class="img-fluid" alt="Acesso ao Menu Vínculo"><br><br>
+
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/EDOV014_T.png" class="img-fluid" alt="Busca Facilitada - Prescrição"><br><br>
+
+<!-- Funcionalidades da tela -->
+		<h5><i class='fas fa-user-cog'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Funcionalidades</a></h5>
+
+		<p class="text-justify">Ao abrir a tela <strong>Busca Facilitada - Prescrição</strong>, o usuário deverá selecionar a <strong>Unidade</strong> de 
+		atendimento e o <strong>Tipo</strong> de procedimento desejados, parâmetros que filtrarão os procedimentos disponíveis para configuração no contexto 
+		do hospital logado.</p>
+
+		<p>Os principais campos da tela são:</p>
+
+		<table class="table table-striped">
+			<tbody>
+			  <tr>
+				<td><strong>Hospital</strong></td>
+				<td>Apresenta o nome do hospital logado (ex.: <strong>SALUX HOSPITAL UM</strong>). Campo somente leitura, preenchido automaticamente pelo sistema.</td>
+			  </tr>
+			  <tr>
+				<td><strong>Unidade</strong></td>
+				<td>Lista suspensa que permite selecionar a unidade de atendimento (ex.: <strong>AMBULATÓRIO</strong>, <strong>AMBULATÓRIO ELETIVO</strong>, 
+				<strong>AMBULATÓRIO ONCO</strong>, <strong>QUIMIOTERAPIA</strong>, <strong>RADIOTERAPIA</strong>, <strong>URGÊNCIA/EMERGÊNCIA</strong>, 
+				<strong>UTI - ADULTO</strong>, <strong>UTI - PEDIÁTRICA</strong>).</td>
+			  </tr>
+			  <tr>
+				<td><strong>Tipo</strong></td>
+				<td>Lista suspensa que permite selecionar o tipo de procedimento (<strong>Nutrição</strong>, <strong>Exame</strong>, <strong>Enfermagem</strong>, 
+				<strong>Serviço</strong>, <strong>Procedimento</strong>, <strong>Gasoterapia</strong>, <strong>Equipamento</strong>, <strong>Cuidados</strong>).</td>
+			  </tr>
+			  <tr>
+				<td><strong>Buscar Procedimentos</strong></td>
+				<td>Botão que carrega a lista de procedimentos compatíveis com os filtros selecionados de <strong>Unidade</strong> e <strong>Tipo</strong>.</td>
+			  </tr>
+			  <tr>
+				<td><strong>Procedimentos</strong></td>
+				<td>Grade que apresenta os procedimentos retornados, com as colunas <strong>Código</strong>, <strong>Descrição</strong>, 
+				<strong>Exige Documento</strong> (checkbox) e <strong>Documento</strong> (ícone de vínculo).</td>
+			  </tr>
+			  <tr>
+				<td><strong>Documento</strong></td>
+				<td>Painel à direita da tela, apresenta o documento atualmente vinculado ao procedimento selecionado, com possibilidade de remoção pelo ícone 
+				<i class='fas fa-trash-alt'style='font-size:14px;color:#262626'></i>.</td>
+			  </tr>
+			</tbody>
+		</table><br>
+
+<!-- Selecionar Unidade -->
+		<h5><i class='fas fa-filter'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Selecionar a Unidade</a></h5>
+
+		<p class="text-justify">No campo <strong>Unidade</strong>, o usuário deverá clicar na lista suspensa e selecionar a unidade desejada para a configuração. 
+		As unidades apresentadas são as cadastradas e ativas no hospital logado.</p>
+		<img src="img/EDOV014_T_UNIDADE.png" class="img-fluid" alt="Seleção de Unidade"><br><br>
+
+<!-- Selecionar Tipo -->
+		<h5><i class='fas fa-list-alt'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Selecionar o Tipo</a></h5>
+
+		<p class="text-justify">No campo <strong>Tipo</strong>, o usuário deverá clicar na lista suspensa e selecionar o tipo de procedimento que deseja 
+		configurar. O tipo refina a lista de procedimentos apresentados na grade.</p>
+		<img src="img/EDOV014_T_TIPO.png" class="img-fluid" alt="Seleção de Tipo"><br><br>
+
+<!-- Buscar Procedimentos -->
+		<h5><i class='fas fa-search'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Buscar Procedimentos</a></h5>
+
+		<p class="text-justify">Após selecionar a <strong>Unidade</strong> e o <strong>Tipo</strong>, o usuário deverá clicar no botão 
+		<strong>Buscar Procedimentos</strong>. O sistema apresentará na grade <strong>Procedimentos</strong> todos os itens compatíveis com os filtros 
+		informados.</p>
+		<img src="img/EDOV014_T_LISTA.png" class="img-fluid" alt="Lista de Procedimentos"><br><br>
+
+		<p class="text-justify">A grade de procedimentos pode ser ordenada pela coluna <strong>Descrição</strong> clicando no cabeçalho. Uma seta indicativa 
+		é exibida para sinalizar a direção da ordenação. A barra de rolagem lateral permite navegar por listas extensas.</p><br>
+
+<!-- Marcar Exige Documento -->
+		<h5><i class='fas fa-check-square'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Marcar Procedimento como Exige Documento</a></h5>
+
+		<p class="text-justify">Para indicar que um procedimento exige o preenchimento de um documento obrigatório no momento da prescrição, o usuário deverá 
+		marcar o checkbox correspondente na coluna <strong>Exige Documento</strong>, na linha do procedimento desejado (ex.: 
+		<strong>COLONOSCOPIA (COLOSCOPIA)</strong>, código <strong>209010029</strong>).</p>
+
+		<p class="text-justify">Ao marcar o checkbox, o sistema habilita o ícone <i class='fas fa-clipboard'style='font-size:14px;color:#262626'></i> na coluna 
+		<strong>Documento</strong>, indicando que o vínculo de documento poderá ser feito.</p>
+		<img src="img/EDOV014_T_CHECK.png" class="img-fluid" alt="Procedimento marcado como Exige Documento"><br><br>
+
+		<div class="alert alert-warning" role="alert">
+			<h5 class="alert-heading"><i class='fas fa-exclamation-triangle'style='font-size:20px'></i> Atenção!!!</h5>
+			<p class="text-justify">Ao marcar <strong>Exige Documento</strong>, é obrigatório vincular um documento ao procedimento. Caso o vínculo não seja 
+			feito, o sistema poderá apresentar comportamento inconsistente no fluxo de prescrição. Para desativar a obrigatoriedade, basta desmarcar o 
+			checkbox e salvar.</p>
+		</div><br>
+
+<!-- Pesquisar Documento -->
+		<h5><i class='fas fa-file-alt'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Pesquisar e Selecionar o Documento Obrigatório</a></h5>
+
+		<p class="text-justify">Após marcar o checkbox <strong>Exige Documento</strong>, o usuário deverá clicar no ícone exibido na coluna 
+		<strong>Documento</strong>. O sistema abrirá a tela <strong>Pesquisa de Documento (CFPQ003_T)</strong>, que permite localizar e selecionar o 
+		documento que será vinculado ao procedimento.</p>
+
+<!-- Tela do sistema -->
+		<h5><i class='far fa-images'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Print da Tela</a></h5>
+		<img src="img/CFPQ003_T.png" class="img-fluid" alt="Pesquisa de Documento"><br><br>
+
+		<p>Na tela <strong>Pesquisa de Documento</strong>, os campos disponíveis são:</p>
+
+		<table class="table table-striped">
+			<tbody>
+			  <tr>
+				<td><strong>Pesquisar por</strong></td>
+				<td>Campo de texto livre para informar parte do nome ou código do documento desejado (ex.: <strong>Consentimento</strong>).</td>
+			  </tr>
+			  <tr>
+				<td><strong>Seleciona por</strong></td>
+				<td>Define o critério da pesquisa: <strong>Código</strong> (busca pelo código numérico do documento) ou <strong>Descrição</strong> 
+				(busca pela descrição/nome).</td>
+			  </tr>
+			  <tr>
+				<td><strong>Seleciona em</strong></td>
+				<td>Define onde aplicar o critério informado: <strong>Apenas no Início</strong> (a busca considera apenas o início do texto) ou 
+				<strong>Qualquer parte</strong> (a busca considera o termo em qualquer posição do texto).</td>
+			  </tr>
+			  <tr>
+				<td><strong>Status</strong></td>
+				<td>Permite filtrar os documentos pelo status: <strong>Ativo</strong>, <strong>Inativo</strong> ou <strong>Ambos</strong>.</td>
+			  </tr>
+			  <tr>
+				<td><strong>Pesquisar</strong></td>
+				<td>Botão que executa a busca conforme os parâmetros informados.</td>
+			  </tr>
+			  <tr>
+				<td><strong>Registros Encontrados</strong></td>
+				<td>Lista os documentos retornados pela busca, com as colunas <strong>Código</strong>, <strong>Descrição</strong> e indicador visual de status 
+				(<i class='fas fa-circle'style='font-size:14px;color:#28a745'></i> Ativo, 
+				<i class='fas fa-circle'style='font-size:14px;color:#dc3545'></i> Inativo).</td>
+			  </tr>
+			  <tr>
+				<td><strong>Ok / Cancelar</strong></td>
+				<td><strong>Ok</strong> confirma a seleção do documento marcado e o vincula ao procedimento. <strong>Cancelar</strong> fecha a tela sem realizar o vínculo.</td>
+			  </tr>
+			</tbody>
+		</table><br>
+
+		<p class="text-justify">Para realizar a pesquisa, o usuário deverá digitar o termo desejado no campo <strong>Pesquisar por</strong> (ex.: 
+		<strong>Consentimento</strong>), selecionar o critério em <strong>Seleciona por</strong>, definir <strong>Seleciona em</strong> e o 
+		<strong>Status</strong>, e clicar no botão <strong>Pesquisar</strong>. O sistema apresentará os documentos que atendem aos critérios.</p>
+		<img src="img/CFPQ003_T_RESULTADO.png" class="img-fluid" alt="Resultados da Pesquisa de Documento"><br><br>
+
+		<p class="text-justify">Em seguida, o usuário deverá selecionar o documento desejado clicando sobre a linha (ex.: 
+		<strong>15392 - Consentimento - Colonoscopia</strong>) e clicar em <strong>Ok</strong> para confirmar. O documento selecionado passará a ser exibido 
+		no painel <strong>Documento</strong>, à direita da grade de procedimentos.</p>
+		<img src="img/EDOV014_T_VINCULADO.png" class="img-fluid" alt="Documento vinculado ao Procedimento"><br><br>
+
+		<div class="alert alert-primary" role="alert">
+			<h5 class="alert-heading"><i class='fas fa-info-circle'style='font-size:20px'></i> Informativo!!!</h5>
+			<p class="text-justify">A tela <strong>Pesquisa de Documento</strong> utiliza a base unificada de modelos do <strong>Gerador de Documentos</strong>. 
+			Documentos com indicador vermelho (<strong>Inativos</strong>) podem ser visualizados quando o filtro <strong>Status</strong> estiver como 
+			<strong>Ambos</strong> ou <strong>Inativo</strong>, mas a recomendação operacional é vincular apenas documentos com status <strong>Ativo</strong>.</p>
+		</div><br>
+
+<!-- Salvar -->
+		<h5><i class='fas fa-save'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Salvar a Configuração</a></h5>
+
+		<p class="text-justify">Após realizar a marcação dos checkboxes <strong>Exige Documento</strong> e o vínculo dos documentos correspondentes, o usuário 
+		deverá clicar no botão <i class='fas fa-save'style='font-size:17px;color:Black'></i> na barra superior para gravar as configurações. O sistema 
+		apresentará a mensagem <strong>"Dados salvos com sucesso!"</strong>. Basta clicar em <strong>OK</strong> para finalizar.</p>
+		<img src="img/EDOV014_T_SALVO.png" class="img-fluid" alt="Mensagem Dados salvos com sucesso"><br><br>
+
+<!-- Remover Vínculo -->
+		<h5><i class='fas fa-trash-alt'style='font-size:20px;color:#3DAEE9'></i><a class="text"> Remover Vínculo de Documento</a></h5>
+
+		<p class="text-justify">Caso seja necessário remover o vínculo de um documento previamente associado a um procedimento, o sistema disponibiliza 
+		duas formas de remoção:</p>
+
+		<table class="table table-striped">
+			<tbody>
+			  <tr>
+				<td><strong>Pelo painel Documento</strong></td>
+				<td>Clique no ícone <i class='fas fa-trash-alt'style='font-size:14px;color:#262626'></i> exibido ao lado do documento atualmente vinculado. 
+				O sistema remove o vínculo daquele procedimento.</td>
+			  </tr>
+			  <tr>
+				<td><strong>Pela coluna Exige Documento</strong></td>
+				<td>Desmarque o checkbox da linha do procedimento. O sistema remove tanto a obrigatoriedade quanto o vínculo do documento associado.</td>
+			  </tr>
+			</tbody>
+		</table><br>
+
+		<p class="text-justify">Após realizar qualquer uma das ações acima, o usuário deverá clicar em <i class='fas fa-save'style='font-size:17px;color:Black'></i> 
+		na barra superior para que a remoção seja efetivada.</p><br>
+
+		<div class="alert alert-warning" role="alert">
+			<h5 class="alert-heading"><i class='fas fa-exclamation-triangle'style='font-size:20px'></i> Atenção!!!</h5>
+			<p class="text-justify">A inativação de um documento previamente vinculado <strong>não remove automaticamente</strong> a obrigatoriedade configurada. 
+			É responsabilidade do gestor revisar os vínculos sempre que houver mudança de status (ativo/inativo) de um documento.</p>
+		</div><br>
+
+<!-- Botão para acionar modal -->
+		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalExemplo">
+		  <i class='fas fa-video'style='font-size:12px;color:Write'></i> <a class="text"> Assistir Vídeo</a>
+		</button>
+
+<!-- Modal -->
+		<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel" style="color:Back"><i class='fas fa-video'style='font-size:20px;color:SteelBlue'></i> Configuração de Prescrições x Documentos Obrigatórios</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<video controls="controls" width="100%" height="100%" autoplay>
+					<source src="videos/EDOV014_T.mp4">
+				</video>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+					<i class='fas fa-sign-out-alt'style='font-size:14px;color:Write'></i> Fechar Demonstração
+				</button>
+			  </div>
+			</div>
+		  </div>
+		</div><br><br><br>
+
+<!-- Observações Gerais -->
+		<h5><i class='fas fa-clipboard-list'style='font-size:20px;color:#3DAEE9'></i><a class="text"> OBSERVAÇÕES GERAIS</a></h5>
+
+		<p class="text-justify">A configuração realizada nesta tela define a obrigatoriedade do documento no momento da prescrição. Procedimentos não marcados 
+		como <strong>Exige Documento</strong> continuarão prescritíveis sem solicitação automática de documento associado.</p>
+
+		<p class="text-justify">A combinação <strong>Hospital + Unidade + Tipo</strong> é determinante para a busca de procedimentos. Sempre revise os filtros 
+		antes de iniciar uma nova configuração para evitar marcações em contextos incorretos.</p>
+
+		<p class="text-justify">Recomenda-se padronizar a nomenclatura dos documentos (ex.: <strong>"Consentimento - &lt;Nome do Procedimento&gt;"</strong>) para 
+		facilitar a busca e a manutenção dos vínculos ao longo do tempo.</p>
+
+		<p class="text-justify">Para fins de auditoria e rastreabilidade, registre as configurações em controle interno (planilha de governança ou 
+		<em>changelog</em>), informando data, usuário responsável, hospital, unidade, tipo, procedimento e documento vinculado.</p>
+
+		<p class="text-justify">A funcionalidade integra-se ao módulo de <strong>Prescrição</strong>: ao prescrever um procedimento marcado como 
+		<strong>Exige Documento</strong>, o sistema solicita o preenchimento do documento configurado, garantindo conformidade com normas internas e externas 
+		(regulamentação sanitária, ANVISA, CFM, requisitos de qualidade hospitalar).</p><br><br>
+
+	</div>
+
+ <!-- JavaScript (Opcional) -->
+ <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script type="text/javascript" src="../../../assets/js/jquery.js"></script>
+    <script type="text/javascript" src="../../../assets/js/popper.js"></script>
+    <script type="text/javascript" src="../../../assets/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../../../assets/js/smoothscroll.js"></script> 
+
+  <script src="../../../assets/js/voltar-topo.js"></script>
+</body>
+
+</html>

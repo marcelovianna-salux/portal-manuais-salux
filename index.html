@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Central de Manuais — Salux Technology</title>
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --blue:       #3DAEE9;
+      --blue-dark:  #2B8FD4;
+      --blue-pale:  #EAF4FB;
+      --blue-pale2: #D0E8F5;
+      --slate:      #3D5166;
+      --dark:       #1C2B3A;
+      --mid:        #374151;
+      --soft:       #6B7280;
+      --light:      #9CA3AF;
+      --border:     #E2E8F0;
+      --bg:         #F4F8FB;
+      --white:      #FFFFFF;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--dark); }
+
+    /* ── NAVBAR ─────────────────────────── */
+    .navbar {
+      position:fixed; top:0; left:0; right:0; height:66px;
+      background:var(--white); border-bottom:1px solid var(--border);
+      display:flex; align-items:center; padding:0 48px;
+      z-index:1000; box-shadow:0 1px 8px rgba(0,0,0,0.06);
+    }
+    .navbar img { height:36px; width:auto; }
+
+    /* ── HERO ───────────────────────────── */
+    .hero {
+      margin-top:66px;
+      background: linear-gradient(135deg, var(--slate) 0%, var(--blue-dark) 50%, var(--blue) 100%);
+      padding:56px 48px 48px; text-align:center;
+    }
+    .hero h1 {
+      font-size:40px; font-weight:900; color:#fff;
+      letter-spacing:-1.2px; line-height:1.1; margin-bottom:10px;
+    }
+    .hero p { font-size:16px; color:rgba(255,255,255,.80); margin-bottom:30px; }
+
+    /* search */
+    .search-wrap { position:relative; max-width:520px; margin:0 auto 14px; }
+    .search-wrap .si {
+      position:absolute; left:17px; top:50%; transform:translateY(-50%);
+      color:var(--light); font-size:14px; pointer-events:none;
+    }
+    #searchInput {
+      width:100%; height:48px; padding:0 48px;
+      font-size:14px; font-family:'Inter',sans-serif;
+      border:none; border-radius:10px; outline:none;
+      background:#fff; color:var(--dark);
+      box-shadow:0 4px 16px rgba(0,0,0,.12);
+      transition:box-shadow .2s;
+    }
+    #searchInput:focus { box-shadow:0 6px 24px rgba(0,0,0,.18); }
+    #searchInput::placeholder { color:var(--light); }
+    #clearSearch {
+      position:absolute; right:13px; top:50%; transform:translateY(-50%);
+      background:var(--border); border:none; width:24px; height:24px;
+      border-radius:50%; color:var(--soft); cursor:pointer;
+      align-items:center; justify-content:center; font-size:10px;
+      display:none; transition:background .15s;
+    }
+    #clearSearch:hover { background:var(--blue-pale2); color:var(--blue); }
+    .hero-count { font-size:13px; color:rgba(255,255,255,.65); }
+    .hero-count strong { color:#fff; font-weight:700; }
+
+    /* ── LAYOUT ─────────────────────────── */
+    .wrap { max-width:1240px; margin:0 auto; padding:36px 48px 80px; display:flex; gap:28px; }
+
+    /* ── SIDEBAR ────────────────────────── */
+    .sidebar { width:220px; flex-shrink:0; }
+    .filter-block {
+      background:var(--white); border:1px solid var(--border);
+      border-radius:12px; padding:16px; margin-bottom:14px;
+    }
+    .filter-title {
+      font-size:10.5px; font-weight:700; text-transform:uppercase;
+      letter-spacing:.9px; color:var(--blue); margin-bottom:10px;
+      padding-bottom:8px; border-bottom:1px solid var(--blue-pale);
+      display:flex; align-items:center; gap:6px;
+    }
+    .filter-list { list-style:none; padding:0; margin:0; }
+    .fi {
+      padding:7px 10px; border-radius:7px; cursor:pointer;
+      font-size:13px; color:var(--mid); display:flex;
+      align-items:center; justify-content:space-between;
+      transition:background .15s, color .15s; margin:1px 0;
+      user-select:none;
+    }
+    .fi span { display:flex; align-items:center; gap:7px; }
+    .fi i { color:var(--light); font-size:12px; }
+    .fi:hover { background:var(--blue-pale); color:var(--blue-dark); }
+    .fi:hover i { color:var(--blue); }
+    .fi.active { background:var(--blue); color:#fff; font-weight:600; }
+    .fi.active i { color:rgba(255,255,255,.8); }
+    .fc {
+      font-size:11px; font-weight:700; padding:1px 7px;
+      border-radius:10px; background:rgba(0,0,0,.07); flex-shrink:0;
+    }
+    .fi.active .fc { background:rgba(255,255,255,.22); }
+    .btn-reset {
+      width:100%; padding:8px; border:1.5px solid var(--border);
+      border-radius:8px; background:var(--white); font-size:13px;
+      color:var(--soft); cursor:pointer; font-family:'Inter',sans-serif;
+      transition:border-color .15s, color .15s;
+    }
+    .btn-reset:hover { border-color:var(--blue); color:var(--blue); }
+
+    /* ── MAIN ───────────────────────────── */
+    .main { flex:1; min-width:0; }
+    .toolbar {
+      display:flex; justify-content:space-between; align-items:center;
+      margin-bottom:18px; padding-bottom:14px;
+      border-bottom:1px solid var(--border); flex-wrap:wrap; gap:8px;
+    }
+    .chips { display:flex; flex-wrap:wrap; gap:6px; }
+    .chip {
+      background:var(--blue-pale); color:var(--blue-dark);
+      padding:4px 11px; border-radius:12px; font-size:12px;
+      display:inline-flex; align-items:center; gap:5px; font-weight:500;
+    }
+    .chip i { cursor:pointer; font-size:9px; opacity:.7; }
+    .chip i:hover { opacity:1; }
+    .res-count { font-size:13px; color:var(--light); }
+
+    /* ── GRUPO ──────────────────────────── */
+    .group-hd {
+      display:flex; align-items:center; gap:10px;
+      margin:28px 0 14px; padding-bottom:10px;
+      border-bottom:2px solid var(--blue-pale2);
+    }
+    .group-hd:first-child { margin-top:0; }
+    .group-title { font-size:15px; font-weight:700; color:var(--dark); margin:0; }
+    .group-title i { color:var(--blue); margin-right:7px; }
+    .group-badge {
+      background:var(--blue-pale); color:var(--blue-dark);
+      font-size:11px; font-weight:700; padding:2px 9px; border-radius:10px;
+    }
+
+    /* ── GRID DE CARDS ──────────────────── */
+    .cards-grid {
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+    }
+    @media (max-width:1100px) { .cards-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width:700px)  { .cards-grid { grid-template-columns: 1fr; } }
+
+    /* ── CARD ───────────────────────────── */
+    .card {
+      background:var(--white); border:1.5px solid var(--border);
+      border-radius:12px; padding:20px; display:flex;
+      flex-direction:column; gap:11px; text-decoration:none;
+      color:inherit; position:relative;
+      transition:border-color .2s, box-shadow .2s, transform .18s;
+    }
+    .card:hover {
+      border-color:var(--blue); text-decoration:none; color:inherit;
+      box-shadow:0 8px 28px rgba(58,143,217,.16); transform:translateY(-2px);
+    }
+    .card-icon {
+      width:44px; height:44px; border-radius:10px;
+      background:var(--blue-pale); color:var(--blue);
+      display:flex; align-items:center; justify-content:center; font-size:19px;
+    }
+    .card-mod {
+      font-size:10.5px; font-weight:700; letter-spacing:.7px;
+      text-transform:uppercase; color:var(--blue); margin-bottom:2px;
+    }
+    .card-title { font-size:14px; font-weight:700; color:var(--dark); line-height:1.4; }
+    .card-desc  { font-size:12.5px; color:var(--soft); line-height:1.6; flex-grow:1; }
+    .card-tags  { display:flex; flex-wrap:wrap; gap:4px; }
+    .card-tag {
+      background:#F0F7FF; color:var(--blue-dark); font-size:10px;
+      padding:2px 7px; border-radius:8px; font-weight:500;
+    }
+    .card-meta {
+      display:flex; flex-wrap:wrap; gap:10px; font-size:11px;
+      color:var(--light); padding-top:10px; border-top:1px solid var(--border);
+    }
+    .card-meta i { color:var(--blue); margin-right:3px; }
+    .badge-video {
+      position:absolute; top:12px; right:12px;
+      background:var(--blue); color:#fff; font-size:10px;
+      padding:2px 8px; border-radius:8px;
+      display:flex; align-items:center; gap:4px; font-weight:600;
+    }
+    .hl { background:#FEF3C7; color:#92400E; padding:0 2px; border-radius:2px; }
+
+    /* ── EMPTY ──────────────────────────── */
+    .empty { text-align:center; padding:60px 20px; color:var(--light); }
+    .empty i { font-size:52px; margin-bottom:14px; opacity:.25; display:block; }
+    .empty h4 { color:var(--soft); font-size:17px; margin-bottom:6px; }
+
+    /* ── FOOTER ─────────────────────────── */
+    footer {
+      border-top:1px solid var(--border); background:var(--white);
+      padding:18px 48px; display:flex; align-items:center;
+      justify-content:space-between;
+    }
+    footer img { height:24px; width:auto; }
+    footer small { color:var(--light); font-size:12px; }
+
+    @media(max-width:768px){
+      .wrap { flex-direction:column; padding:24px 20px 60px; }
+      .sidebar { width:100%; }
+      .hero { padding:44px 24px 36px; }
+      .hero h1 { font-size:28px; }
+      .navbar { padding:0 20px; }
+      footer { padding:16px 20px; flex-direction:column; gap:8px; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a href="index.html">
+    <img src="assets/img/logo_salux_novo.png" alt="Salux Technology">
+  </a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Central de Manuais</h1>
+  <p>Documentação oficial dos módulos e funcionalidades do sistema SX Sigma</p>
+  <div class="search-wrap">
+    <i class="fas fa-search si"></i>
+    <input type="text" id="searchInput" placeholder="Buscar por título, módulo, código de tela ou palavra-chave..." autocomplete="off">
+    <button id="clearSearch" title="Limpar"><i class="fas fa-times"></i></button>
+  </div>
+  <p class="hero-count"><strong id="totalManuais">0</strong> manuais disponíveis</p>
+</section>
+
+<!-- WRAP -->
+<div class="wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="filter-block">
+      <div class="filter-title"><i class="fas fa-cubes"></i> Módulos</div>
+      <ul class="filter-list" id="filterModulos">
+        <li class="fi active" data-type="modulo" data-value="*">
+          <span><i class="fas fa-th-large"></i> Todos</span>
+          <span class="fc" id="cntModAll">0</span>
+        </li>
+      </ul>
+    </div>
+    <div class="filter-block">
+      <div class="filter-title"><i class="fas fa-tags"></i> Categorias</div>
+      <ul class="filter-list" id="filterCategorias">
+        <li class="fi active" data-type="categoria" data-value="*">
+          <span><i class="fas fa-list"></i> Todas</span>
+          <span class="fc" id="cntCatAll">0</span>
+        </li>
+      </ul>
+    </div>
+    <div class="filter-block">
+      <div class="filter-title"><i class="fas fa-sliders-h"></i> Recursos</div>
+      <ul class="filter-list">
+        <li class="fi" data-type="video" data-value="true">
+          <span><i class="fas fa-video"></i> Com vídeo</span>
+          <span class="fc" id="cntVideo">0</span>
+        </li>
+      </ul>
+    </div>
+    <button class="btn-reset" id="resetBtn"><i class="fas fa-undo"></i> Limpar filtros</button>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="toolbar">
+      <div class="chips" id="activeChips"></div>
+      <div class="res-count"><span id="resultsCount">0</span> manual(is) encontrado(s)</div>
+    </div>
+    <div id="manuaisGrid"></div>
+    <div id="emptyState" class="empty" style="display:none;">
+      <i class="fas fa-folder-open"></i>
+      <h4>Nenhum manual encontrado</h4>
+      <p>Tente ajustar os termos ou limpar os filtros.</p>
+    </div>
+  </main>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="assets/img/logo_salux_novo.png" alt="Salux Technology">
+  <small>Catálogo v<strong id="catalogVersion">1.0</strong> · atualizado em <span id="catalogUpdated">--</span> · Salux Technology</small>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="manuais.js"></script>
+<script>
+// Proteção de acesso
+(async function() {
+  const { data: { session } } = await _supabase.auth.getSession();
+  if (!session) { window.location.href = 'login.html'; return; }
+
+  // Mostrar email do usuário e botão de sair
+  const userEmail = session.user.email;
+  const navbar = document.querySelector('.navbar-text') || document.querySelector('nav');
+  if (navbar) {
+    const userInfo = document.createElement('div');
+    userInfo.style.cssText = 'display:flex;align-items:center;gap:10px;margin-left:auto;';
+    userInfo.innerHTML = `
+      <span style="color:rgba(255,255,255,0.85);font-size:13px;">${userEmail}</span>
+      <button onclick="(async()=>{await _supabase.auth.signOut();window.location.href='login.html';})()"
+        style="background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.4);padding:5px 14px;border-radius:6px;cursor:pointer;font-size:12px;">
+        Sair
+      </button>`;
+    const navContainer = document.querySelector('.navbar') || document.querySelector('nav');
+    if (navContainer) navContainer.appendChild(userInfo);
+  }
+})();
+</script>
+<script>
+(function(){
+  var S={manuais:[],f:{q:'',mod:'*',cat:'*',vid:null}};
+
+  function init(){
+    var d=window.MANUAIS_CATALOG; if(!d) return;
+    S.manuais=d.manuais||[];
+    document.getElementById('catalogVersion').textContent=d._versao_catalogo||'1.0';
+    document.getElementById('catalogUpdated').textContent=d._atualizado_em||'--';
+    document.getElementById('totalManuais').textContent=S.manuais.length;
+    buildSidebar(); bindEvents(); render();
+  }
+
+  function buildSidebar(){
+    var mods={},cats={},vid=0;
+    S.manuais.forEach(function(m){
+      mods[m.modulo]=(mods[m.modulo]||0)+1;
+      cats[m.categoria]=(cats[m.categoria]||0)+1;
+      if(m.tem_video) vid++;
+    });
+    document.getElementById('cntModAll').textContent=S.manuais.length;
+    document.getElementById('cntCatAll').textContent=S.manuais.length;
+    document.getElementById('cntVideo').textContent=vid;
+    var fm=document.getElementById('filterModulos');
+    Object.keys(mods).sort().forEach(function(n){
+      var li=document.createElement('li'); li.className='fi';
+      li.dataset.type='modulo'; li.dataset.value=n;
+      li.innerHTML='<span><i class="fas fa-cube"></i>'+e(n)+'</span><span class="fc">'+mods[n]+'</span>';
+      fm.appendChild(li);
+    });
+    var fc=document.getElementById('filterCategorias');
+    Object.keys(cats).sort().forEach(function(n){
+      var li=document.createElement('li'); li.className='fi';
+      li.dataset.type='categoria'; li.dataset.value=n;
+      li.innerHTML='<span><i class="fas fa-tag"></i>'+e(n)+'</span><span class="fc">'+cats[n]+'</span>';
+      fc.appendChild(li);
+    });
+  }
+
+  function bindEvents(){
+    var inp=document.getElementById('searchInput'), clr=document.getElementById('clearSearch');
+    inp.addEventListener('input',function(){
+      S.f.q=inp.value.trim().toLowerCase();
+      clr.style.display=S.f.q?'flex':'none'; render();
+    });
+    clr.addEventListener('click',function(){ inp.value=''; S.f.q=''; clr.style.display='none'; render(); inp.focus(); });
+    document.querySelectorAll('.filter-list').forEach(function(l){
+      l.addEventListener('click',function(ev){
+        var it=ev.target.closest('.fi'); if(!it) return;
+        var t=it.dataset.type, v=it.dataset.value;
+        if(t==='modulo'){S.f.mod=v; setActive('filterModulos',it);}
+        else if(t==='categoria'){S.f.cat=v; setActive('filterCategorias',it);}
+        else if(t==='video'){S.f.vid=S.f.vid===true?null:true; it.classList.toggle('active',S.f.vid===true);}
+        render();
+      });
+    });
+    document.getElementById('resetBtn').addEventListener('click',reset);
+  }
+
+  function setActive(id,el){
+    document.querySelectorAll('#'+id+' .fi').forEach(function(i){i.classList.remove('active');});
+    el.classList.add('active');
+  }
+
+  function reset(){
+    S.f={q:'',mod:'*',cat:'*',vid:null};
+    document.getElementById('searchInput').value='';
+    document.getElementById('clearSearch').style.display='none';
+    ['filterModulos','filterCategorias'].forEach(function(id){
+      document.querySelectorAll('#'+id+' .fi').forEach(function(i){i.classList.toggle('active',i.dataset.value==='*');});
+    });
+    document.querySelectorAll('[data-type="video"]').forEach(function(i){i.classList.remove('active');});
+    render();
+  }
+  window.resetFilters=reset;
+
+  function filtered(){
+    return S.manuais.filter(function(m){
+      if(S.f.mod!=='*'&&m.modulo!==S.f.mod) return false;
+      if(S.f.cat!=='*'&&m.categoria!==S.f.cat) return false;
+      if(S.f.vid===true&&!m.tem_video) return false;
+      if(S.f.q){
+        var h=[m.titulo,m.descricao,m.modulo,m.categoria,(m.tags||[]).join(' '),(m.telas||[]).join(' ')].join(' ').toLowerCase();
+        if(h.indexOf(S.f.q)===-1) return false;
+      }
+      return true;
+    });
+  }
+
+  function render(){
+    var list=filtered();
+    document.getElementById('resultsCount').textContent=list.length;
+    renderChips();
+    var grid=document.getElementById('manuaisGrid'), emp=document.getElementById('emptyState');
+    if(!list.length){grid.innerHTML=''; emp.style.display='block'; return;}
+    emp.style.display='none';
+    var html='';
+    if(S.f.mod==='*'){
+      var g={};
+      list.forEach(function(m){if(!g[m.modulo])g[m.modulo]=[]; g[m.modulo].push(m);});
+      Object.keys(g).sort().forEach(function(mod){
+        html+='<div class="group-hd"><h3 class="group-title"><i class="fas fa-cube"></i>'+e(mod)+'</h3><span class="group-badge">'+g[mod].length+'</span></div>';
+        html+='<div class="cards-grid">';
+        g[mod].forEach(function(m){html+=card(m);});
+        html+='</div>';
+      });
+    } else {
+      html='<div class="cards-grid">';
+      list.forEach(function(m){html+=card(m);});
+      html+='</div>';
+    }
+    grid.innerHTML=html;
+  }
+
+  function card(m){
+    var q=S.f.q;
+    var tags=(m.tags||[]).slice(0,4).map(function(t){return'<span class="card-tag">'+e(t)+'</span>';}).join('');
+    var bv=m.tem_video?'<span class="badge-video"><i class="fas fa-video"></i> Vídeo</span>':'';
+    return '<a href="'+e(m.url)+'" class="card">'+bv+
+      '<div class="card-icon"><i class="'+e(m.icone||'fas fa-file-alt')+'"></i></div>'+
+      '<div class="card-mod">'+e(m.modulo)+'</div>'+
+      '<div class="card-title">'+hl(m.titulo,q)+'</div>'+
+      '<div class="card-desc">'+hl(m.descricao,q)+'</div>'+
+      '<div class="card-tags">'+tags+'</div>'+
+      '<div class="card-meta">'+
+        '<span><i class="fas fa-tag"></i>'+e(m.categoria)+'</span>'+
+        '<span><i class="fas fa-code-branch"></i>v'+e(m.versao||'1.0')+'</span>'+
+        '<span><i class="fas fa-calendar-alt"></i>'+e(fmtD(m.data_publicacao))+'</span>'+
+      '</div></a>';
+  }
+
+  function renderChips(){
+    var f=S.f, ch=[];
+    if(f.q) ch.push(chp('Busca: "'+f.q+'"','q'));
+    if(f.mod!=='*') ch.push(chp('Módulo: '+f.mod,'mod'));
+    if(f.cat!=='*') ch.push(chp('Categoria: '+f.cat,'cat'));
+    if(f.vid===true) ch.push(chp('Com vídeo','vid'));
+    var c=document.getElementById('activeChips'); c.innerHTML=ch.join('');
+    c.querySelectorAll('[data-rm]').forEach(function(el){el.addEventListener('click',function(){rmChip(el.dataset.rm);});});
+  }
+  function chp(t,k){return'<span class="chip">'+e(t)+' <i class="fas fa-times" data-rm="'+k+'"></i></span>';}
+  function rmChip(k){
+    if(k==='q'){document.getElementById('searchInput').value=''; document.getElementById('clearSearch').style.display='none'; S.f.q='';}
+    else if(k==='mod'){S.f.mod='*'; document.querySelectorAll('#filterModulos .fi').forEach(function(i){i.classList.toggle('active',i.dataset.value==='*');});}
+    else if(k==='cat'){S.f.cat='*'; document.querySelectorAll('#filterCategorias .fi').forEach(function(i){i.classList.toggle('active',i.dataset.value==='*');});}
+    else if(k==='vid'){S.f.vid=null; document.querySelectorAll('[data-type="video"]').forEach(function(i){i.classList.remove('active');});}
+    render();
+  }
+
+  function e(s){return s==null?'':String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  function hl(t,q){if(!q)return e(t); return e(t).replace(new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'),'<span class="hl">$1</span>');}
+  function fmtD(s){if(!s)return''; var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s); return m?m[3]+'/'+m[2]+'/'+m[1]:s;}
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+</body>
+</html>
