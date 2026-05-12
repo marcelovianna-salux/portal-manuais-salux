@@ -7,7 +7,6 @@
   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #2B8FD4 0%, #3DAEE9 50%, #1a6fb0 100%);
@@ -16,7 +15,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .card {
       background: #fff;
       border-radius: 16px;
@@ -25,88 +23,48 @@
       max-width: 420px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.2);
     }
-
-    .logo {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-
-    .logo img {
-      height: 60px;
-      width: auto;
-    }
-
-    .logo p {
-      color: #666;
-      font-size: 14px;
-      margin-top: 8px;
-    }
-
-    h2 {
-      font-size: 22px;
-      color: #2c3e50;
-      margin-bottom: 24px;
-      text-align: center;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: #444;
-      margin-bottom: 6px;
-    }
-
+    .logo { text-align: center; margin-bottom: 32px; }
+    .logo img { height: 60px; width: auto; }
+    .logo p { color: #666; font-size: 14px; margin-top: 8px; }
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 13px; font-weight: 600; color: #444; margin-bottom: 6px; }
     input {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1.5px solid #ddd;
-      border-radius: 8px;
-      font-size: 15px;
-      transition: border-color .2s;
-      outline: none;
+      width: 100%; padding: 12px 14px;
+      border: 1.5px solid #ddd; border-radius: 8px;
+      font-size: 15px; transition: border-color .2s; outline: none;
     }
-
     input:focus { border-color: #3DAEE9; }
-
     .btn {
-      width: 100%;
-      padding: 13px;
+      width: 100%; padding: 13px;
       background: linear-gradient(90deg, #2B8FD4, #3DAEE9);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 8px;
-      transition: opacity .2s;
+      color: #fff; border: none; border-radius: 8px;
+      font-size: 16px; font-weight: 600; cursor: pointer;
+      margin-top: 8px; transition: opacity .2s;
     }
-
     .btn:hover { opacity: 0.9; }
     .btn:disabled { opacity: 0.6; cursor: not-allowed; }
-
+    .btn-trocar {
+      width: 100%; padding: 10px;
+      background: #fff; color: #2B8FD4;
+      border: 1.5px solid #2B8FD4; border-radius: 8px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
+      margin-top: 10px; transition: all .2s;
+    }
+    .btn-trocar:hover { background: #f0f7ff; }
     .error {
-      background: #fef2f2;
-      border: 1px solid #fca5a5;
-      color: #dc2626;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 13px;
-      margin-bottom: 16px;
-      display: none;
+      background: #fef2f2; border: 1px solid #fca5a5;
+      color: #dc2626; border-radius: 8px;
+      padding: 10px 14px; font-size: 13px;
+      margin-bottom: 16px; display: none;
     }
-
-    .footer {
-      text-align: center;
-      margin-top: 28px;
-      color: #aaa;
-      font-size: 12px;
+    .sessao-ativa {
+      background: #f0f7ff; border: 1px solid #b8d9f5;
+      border-radius: 8px; padding: 12px 14px;
+      font-size: 13px; color: #1a5a8a;
+      margin-bottom: 16px; display: none;
     }
+    .sessao-ativa strong { display: block; margin-bottom: 4px; }
+    .footer { text-align: center; margin-top: 28px; color: #aaa; font-size: 12px; }
   </style>
 </head>
 <body>
@@ -114,6 +72,11 @@
     <div class="logo">
       <img src="assets/img/logo_salux_novo.png" alt="Salux Technology">
       <p>Portal de Manuais</p>
+    </div>
+
+    <div class="sessao-ativa" id="sessaoAtiva">
+      <strong>Sessão ativa:</strong>
+      <span id="emailAtivo"></span>
     </div>
 
     <div class="error" id="errorMsg"></div>
@@ -129,6 +92,7 @@
     </div>
 
     <button class="btn" id="btnLogin" onclick="fazerLogin()">Entrar</button>
+    <button class="btn-trocar" id="btnTrocar" onclick="trocarUsuario()" style="display:none;">Trocar usuário</button>
 
     <div class="footer">Salux Technology © 2026</div>
   </div>
@@ -136,20 +100,15 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="assets/js/supabase-config.js"></script>
   <script>
-    // Se já estiver logado, redirecionar
-_supabase.auth.getSession().then(({ data: { session } }) => {
-  if (session) {
-    document.getElementById('btnTrocar').style.display = 'block';
-    document.getElementById('usuarioLogado').textContent = session.user.email;
-    document.getElementById('areaLogado').style.display = 'block';
-  }
-});
-
-async function trocarUsuario() {
-  await _supabase.auth.signOut();
-  document.getElementById('areaLogado').style.display = 'none';
-  document.getElementById('btnTrocar').style.display = 'none';
-}
+    // Verificar sessão ativa
+    _supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        document.getElementById('sessaoAtiva').style.display = 'block';
+        document.getElementById('emailAtivo').textContent = session.user.email;
+        document.getElementById('btnTrocar').style.display = 'block';
+        document.getElementById('btnLogin').textContent = 'Entrar com outra conta';
+      }
+    });
 
     async function fazerLogin() {
       const email = document.getElementById('email').value.trim();
@@ -158,14 +117,13 @@ async function trocarUsuario() {
       const erro = document.getElementById('errorMsg');
 
       erro.style.display = 'none';
-
-      if (!email || !senha) {
-        mostrarErro('Preencha e-mail e senha.');
-        return;
-      }
+      if (!email || !senha) { mostrarErro('Preencha e-mail e senha.'); return; }
 
       btn.disabled = true;
       btn.textContent = 'Entrando...';
+
+      // Faz logout antes de logar com nova conta
+      await _supabase.auth.signOut();
 
       const { data, error } = await _supabase.auth.signInWithPassword({ email, password: senha });
 
@@ -179,14 +137,19 @@ async function trocarUsuario() {
       redirecionarPorPerfil(data.user);
     }
 
-    async function redirecionarPorPerfil(user) {
-      // Buscar perfil do usuário
-      const { data: perfil } = await _supabase
-        .from('perfis')
-        .select('role')
-        .eq('id', user.id)
-        .single();
+    async function trocarUsuario() {
+      await _supabase.auth.signOut();
+      document.getElementById('sessaoAtiva').style.display = 'none';
+      document.getElementById('btnTrocar').style.display = 'none';
+      document.getElementById('btnLogin').textContent = 'Entrar';
+      document.getElementById('email').value = '';
+      document.getElementById('senha').value = '';
+      document.getElementById('email').focus();
+    }
 
+    async function redirecionarPorPerfil(user) {
+      const { data: perfil } = await _supabase
+        .from('perfis').select('role').eq('id', user.id).single();
       if (perfil?.role === 'admin') {
         window.location.href = 'admin/index.html';
       } else {
@@ -200,7 +163,6 @@ async function trocarUsuario() {
       el.style.display = 'block';
     }
 
-    // Enter para logar
     document.addEventListener('keydown', e => {
       if (e.key === 'Enter') fazerLogin();
     });
