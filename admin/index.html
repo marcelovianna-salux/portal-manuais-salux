@@ -411,10 +411,23 @@
     }, 1500);
   }
 
-  async function removerUsuario(id, email) {
+async function removerUsuario(id, email) {
     if (!confirm(`Remover o usuário ${email}?`)) return;
 
+    // Remove da tabela perfis
     await _supabase.from('perfis').delete().eq('id', id);
+
+    // Remove do auth via Edge Function
+    const { data: { session } } = await _supabase.auth.getSession();
+    await fetch('https://kbuqchahmlasfwysrodv.supabase.co/functions/v1/deletar-usuario', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + session.access_token
+      },
+      body: JSON.stringify({ user_id: id })
+    });
+
     carregarUsuarios();
   }
 
