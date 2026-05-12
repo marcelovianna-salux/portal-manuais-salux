@@ -305,26 +305,19 @@
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="manuais.js"></script>
-<script>
 // Proteção de acesso
 (async function() {
   const { data: { session } } = await _supabase.auth.getSession();
   if (!session) { window.location.href = 'login.html'; return; }
-
-  // Mostrar email do usuário e botão de sair
   const userEmail = session.user.email;
   const navContainer = document.querySelector('header.navbar');
   if (navContainer) {
     const userInfo = document.createElement('div');
     userInfo.style.cssText = 'display:flex;align-items:center;gap:12px;';
-    userInfo.innerHTML = `
-      <span style="color:#2B8FD4;font-size:13px;font-weight:600;">${userEmail}</span>
-      <button onclick="(async()=>{await _supabase.auth.signOut();window.location.href='login.html';})()" style="background:#2B8FD4;color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Sair</button>
-    `;
+    userInfo.innerHTML = '<span style="color:#2B8FD4;font-size:13px;font-weight:600;">' + userEmail + '</span><button onclick="(async()=>{await _supabase.auth.signOut();window.location.href=\'login.html\';})()" style="background:#2B8FD4;color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Sair</button>';
     navContainer.appendChild(userInfo);
   }
 })();
-</script>
 <script>
 (function(){
   var S={manuais:[],f:{q:'',mod:'*',cat:'*',vid:null}};
