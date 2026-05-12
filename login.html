@@ -137,9 +137,19 @@
   <script src="assets/js/supabase-config.js"></script>
   <script>
     // Se já estiver logado, redirecionar
-    _supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) redirecionarPorPerfil(session.user);
-    });
+_supabase.auth.getSession().then(({ data: { session } }) => {
+  if (session) {
+    document.getElementById('btnTrocar').style.display = 'block';
+    document.getElementById('usuarioLogado').textContent = session.user.email;
+    document.getElementById('areaLogado').style.display = 'block';
+  }
+});
+
+async function trocarUsuario() {
+  await _supabase.auth.signOut();
+  document.getElementById('areaLogado').style.display = 'none';
+  document.getElementById('btnTrocar').style.display = 'none';
+}
 
     async function fazerLogin() {
       const email = document.getElementById('email').value.trim();
