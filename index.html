@@ -313,18 +313,16 @@
 
   // Mostrar email do usuário e botão de sair
   const userEmail = session.user.email;
-  const navbar = document.querySelector('.navbar-text') || document.querySelector('nav');
-  if (navbar) {
+  const navContainer = document.querySelector('header.navbar');
+  if (navContainer) {
     const userInfo = document.createElement('div');
-    userInfo.style.cssText = 'display:flex;align-items:center;gap:10px;';
+    userInfo.style.cssText = 'display:flex;align-items:center;gap:12px;';
     userInfo.innerHTML = `
       <span style="color:#2B8FD4;font-size:13px;font-weight:600;">${userEmail}</span>
-      <button onclick="(async()=>{await _supabase.auth.signOut();window.location.href='login.html';})()"
-        style="background:#2B8FD4;color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">
-        Sair
-      </button>`;
-    const navContainer = document.querySelector('.navbar') || document.querySelector('nav');
-    if (navContainer) navContainer.appendChild(userInfo);
+      <button onclick="(async()=>{await _supabase.auth.signOut();window.location.href='login.html';})()" style="background:#2B8FD4;color:#fff;border:none;padding:7px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;">Sair</button>
+    `;
+    navContainer.appendChild(userInfo);
+  }
   }
 })();
 </script>
