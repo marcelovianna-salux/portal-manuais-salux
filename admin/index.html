@@ -410,14 +410,13 @@
       carregarUsuarios();
     }, 1500);
   }
-
-  async function removerUsuario(id, email) {
+    // Remove usuário do Sistema
+    async function removerUsuario(id, email) {
     if (!confirm(`Remover o usuário ${email}?`)) return;
-
     await _supabase.from('perfis').delete().eq('id', id);
+    await _supabase.rpc('deletar_usuario', { user_id: id });
     carregarUsuarios();
   }
-
   function abrirModalUsuario() {
     ocultarAlertas();
     ['novoNome','novoEmail','novaSenha'].forEach(id => document.getElementById(id).value = '');
